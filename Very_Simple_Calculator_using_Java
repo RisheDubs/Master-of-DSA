@@ -1,0 +1,57 @@
+//A simple calculator using if-loop, using Java [Excersise for familiraisation]
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+public static void main(String[] args) {
+	Scanner input = new Scanner(System.in);
+	//take input from user until user types 'X' or 'x'	
+	System.out.println("The calculators operation will be terminated if you press 'x' or 'X' ");
+	//only work for integers
+	int answer = 0;
+	
+	while(true) {
+		//take operator as input
+		System.out.print("Enter the operator to continue: ");
+		char op = input.next().trim().charAt(0);
+		if(op=='+'||op=='-'||op=='*'||op=='/'||op=='%') {
+			//inputing 2 numbers
+			System.out.print("please enter your number 1: ");
+			int num1 = input.nextInt();
+			System.out.print("please enter your number 2: ");
+			int num2 = input.nextInt();
+			
+			if(op ==  '+') {
+				answer = num1+num2;
+			}
+			if(op ==  '-') {
+				answer = num1-num2;
+			}
+			if(op ==  '*') {
+				answer = num1*num2;
+			}
+			if(op ==  '/') {
+				if(num2 != 0) {
+					answer = num1/num2;
+				}
+			}
+			if(op ==  '%') {
+				answer = num1%num2;
+			}
+		}
+		else if(op=='x' || op =='X') {
+			break;
+		}
+		else {
+			System.out.println("Invalid operation!");
+		}
+		System.out.println("The output is: "+answer);
+	}
+	System.out.println("Thanks for using the calculator ");
+}
+}
+
+
+
