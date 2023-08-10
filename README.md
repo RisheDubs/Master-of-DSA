@@ -1,2 +1,2 @@
-# Master-of-DSA
+# Master-Of-DSA
 This is an exclusive journey on how I learn DSA
