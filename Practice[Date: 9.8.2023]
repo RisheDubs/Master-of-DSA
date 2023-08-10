@@ -1,4 +1,4 @@
-//                                                  Practice
+//                                            Practice[Date:- 09/08/2023]
 //                                            VIDEO link I practiced with: https://www.youtube.com/watch?v=ldYLYRNaucM&list=PL9gnSGHSqcnr_DxHsP7AW9ftq0AtAyYqJ&index=9
 //                                            GIT link I practiced with: https://github.com/kunal-kushwaha/DSA-Bootcamp-Java/blob/main/assignments/02-first-java.md
 //1. Write a program to print whether a number is even or odd, also take input from the user.
@@ -24,6 +24,45 @@ public static void main(String[] args) {
 
 //2.Take name as input and print a greeting message for that particular name.
 
+package javatpoint;
 
+import java.util.Scanner;
+
+public class Student{
+public static void main(String[] args) {
+	Scanner input = new Scanner(System.in);
+	System.out.println("Please enter your name: ");
+	String name = input.next();
+	System.out.println("Greetings, "+name);
+}
+}
+
+
+//3. Write a program to input principal, time, and rate (P, T, R) from the user and find Simple Interest.
+// Formula:- Simple Interest = Principal x Interest Rate x Time
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+public static void main(String[] args) {
+	Scanner input = new Scanner(System.in);
+	System.out.println("Program to find simple interest: ");
+	System.out.print("Enter the principle: ");
+	int principle = input.nextInt();
+	System.out.print("Enter the time: ");
+	int time = input.nextInt();
+	System.out.print("Enter the rate: ");
+	int rate = input.nextInt();
+	
+	int simpleInterest = principle * time* rate;
+	System.out.print("The simple interest is: "+simpleInterest);
+}
+}
+
+
+
+//4. Take in two numbers and an operator (+, -, *, /) and calculate the value. (Use if conditions)
 
 
