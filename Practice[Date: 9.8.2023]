@@ -65,4 +65,227 @@ public static void main(String[] args) {
 
 //4. Take in two numbers and an operator (+, -, *, /) and calculate the value. (Use if conditions)
 
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+public static void main(String[] args) {
+	int result = 0;
+	Scanner input = new Scanner(System.in);
+	System.out.print("Enter num1: ");
+	int num1 = input.nextInt();
+	System.out.print("Enter num2: ");
+	int num2 = input.nextInt();
+	System.out.print("Enter operation: ");
+	char operation = input.next().trim().charAt(0);
+	
+	if(operation == '+') {
+		result = num1 + num2;
+		System.out.println("result is: "+ result);
+	}else if(operation == '-') {
+		result = num1 - num2;
+		System.out.println("result is: "+ result);
+	}else if(operation == '*') {
+		result = num1 * num2;
+		System.out.println("result is: "+ result);
+	}else if(operation == '/') {
+		result = num1 / num2;
+		System.out.println("result is: "+ result);
+	}else {
+		System.out.println("Enter a valid operation ");
+	}
+	
+}
+}
+
+//5.Take 2 numbers as input and print the largest number.
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+public static void main(String[] args) {
+	int result = 0;
+	Scanner input = new Scanner(System.in);
+	System.out.print("Enter num1: ");
+	int num1 = input.nextInt();
+	System.out.print("Enter num2: ");
+	int num2 = input.nextInt();
+	
+	if(num1>num2) {
+		System.out.println(num1+" is greater");
+	}else if(num1<num2) {
+		System.out.println(num2+ " is greater");
+	}else {
+		System.out.println("Enter a valid number ");
+	}
+	
+}
+}
+
+//6.Input currency in rupees and output in USD.
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+public static void main(String[] args) {
+	Scanner input = new Scanner(System.in);
+	System.out.print("enter the rupees: ");
+	double rupees = input.nextDouble();
+	
+	double dollars = rupees * 0.012;
+	
+	System.out.println("The USD convertion is: "+dollars);
+	
+	
+	
+}
+}
+
+
+//7.To calculate Fibonacci Series up to n numbers.
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+public static void main(String[] args) {
+		
+	Scanner input = new Scanner(System.in);
+	System.out.println("Enter the number to know the digit: ");
+	int place = input.nextInt();
+	int num1= 0;
+	int num2= 1;
+	int temp= 0;
+	
+	
+	for(int i=2; i<=place; i++) {
+		temp = num2;
+		num2 = num1+num2;
+		num1 = temp;
+		
+	}
+	System.out.println(num2);
+	
+	
+}
+}
+
+
+//8. To find out whether the given number is Palindrome or not.
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+public static void main(String[] args) {
+		
+	Scanner input = new Scanner(System.in);
+	
+	System.out.println("enter the number to check palindrome or not: ");
+	int number = input.nextInt();
+	
+	int temp = number;
+	int newNumber = 0;
+	
+	while(number>0) {
+		int reminder = number%10;
+		newNumber = newNumber*10+reminder;
+		number/=10;
+
+	}
+	
+	if(temp == newNumber) {
+		System.out.println("It is palindrome ");
+	}else {
+		System.out.println("Its not palindrome ");
+	}
+	
+}
+}
+
+//9. To find out whether the given String is Palindrome or not.
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+public static void main(String[] args) {
+		
+	Scanner input = new Scanner(System.in);
+	
+	System.out.println("enter the String to check palindrome or not: ");
+	String str = input.nextLine();
+	String rev="";
+	int length = str.length();
+	
+	for(int i=length-1;i>=0;i--) {
+		rev = rev+str.charAt(i);
+	}
+	
+	if(str.equals(rev)) {
+		System.out.println("Its palindrome");
+	}else{
+		System.out.println("Its not palindrome");
+	}
+	
+	
+	
+	
+}
+}
+
+
+//10.To find Armstrong Number between two given number.
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+public static void main(String[] args) {
+		
+	Scanner input = new Scanner(System.in);
+	
+	System.out.println("Enter the number ot check armstrong ot not: ");
+	int number = input.nextInt();
+	int armNumber = 0;
+	int dummy = number;
+	
+	while(number>0) {
+		int reminder = number%10;
+		number = number/10;
+		armNumber += Math.pow(reminder,3);
+		
+		
+	}
+	if(armNumber == dummy) {
+		System.out.println(armNumber+" is armstrong number");
+	}else {
+		System.out.println("its not armstrong number");
+	}
+	
+	
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
