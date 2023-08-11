@@ -1,0 +1,208 @@
+//Enhanced Break statement 
+//Enhanced Switch statement dont need no break statements...
+//YT link:- https://www.youtube.com/watch?v=mA23x39DjbI&list=PL9gnSGHSqcnr_DxHsP7AW9ftq0AtAyYqJ&index=11
+
+//1. Input a fruit and know its details using switch cases
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+public static void main(String[] args) {
+	Scanner input = new Scanner(System.in);
+	System.out.print("Enter a fruit name: ");
+	String fruit = input.next();
+	
+	switch(fruit) {
+	case "apple" -> System.out.println("Red round fruit");
+	case "grape" -> System.out.println("purple small round fruit");
+	case "orange" -> System.out.println("orange color round fruit");
+	case "bannana" -> System.out.println("yellow long fruit");
+	default -> System.out.println("Enter a valid fruit");
+	}
+	
+	
+}
+}
+
+//2. Print days of the week.
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+public static void main(String[] args) {
+	Scanner input = new Scanner(System.in);
+	System.out.print("Enter a fruit name: ");
+	int days = input.nextInt();
+	
+	switch(days) {
+	case 1 -> System.out.println("Sunday");
+	case 2-> System.out.println("Monday");
+	case 3 -> System.out.println("Tuesday");
+	case 4 -> System.out.println("Wednesday");
+	case 5 -> System.out.println("Thursday");
+	case 6 -> System.out.println("Friday");
+	case 7 -> System.out.println("Saturday");
+	default -> System.out.println("Enter valid day");
+	}
+	
+	
+}
+}
+
+//3. Program to find if a day is in weekend or weekday
+
+//Regular switvh statements
+
+import java.util.Scanner;
+
+public class Student{
+public static void main(String[] args) {
+	Scanner input = new Scanner(System.in);
+	System.out.print("Enter a fruit name: ");
+	int days = input.nextInt();
+	
+	switch(days) {
+	
+	case 1:
+	case 2:
+	case 3:
+	case 4:
+	case 5:
+		System.out.println("weekday");
+		break;
+	case 6:
+	case 7:
+		System.out.println("weekend");
+		break;
+}
+}
+}
+
+//Enhanced swirch statement
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+public static void main(String[] args) {
+	Scanner input = new Scanner(System.in);
+	System.out.print("Enter a fruit name: ");
+	int days = input.nextInt();
+	
+	switch(days) {
+	
+	
+	case 1,2,3,4,5 -> System.out.println("weekday"); //neeter and elegant code
+	case 6,7 -> System.out.println("weekend");
+	default -> System.out.println("Enter valid day");
+	}
+	
+	
+}
+}
+
+//4. NESTED switch statement
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+public static void main(String[] args) {
+	Scanner input = new Scanner(System.in);
+	System.out.println("Enter a emp ID");
+	int empID = input.nextInt();
+	String dept = input.next();
+	
+	switch(empID) {
+	case 1:
+		System.out.println("Rishekesh b");
+		break;
+	case 2:
+		System.out.println("Jermy renner");
+		break;
+	case 3:{
+		System.out.println("This is 3rd case");
+		switch(dept){
+		case "IT":
+			System.out.println("Information technology dept");
+			break;
+		case "Management":
+			System.out.println("Management department");
+			break;
+		default:
+			System.out.println("No such department");
+		}
+		break;
+	}
+	default:
+		System.out.println("Enter valid ID");
+		break;
+		
+			
+			
+	}
+	}
+	
+}
+
+// With enhanced switch
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+public static void main(String[] args) {
+	Scanner input = new Scanner(System.in);
+	System.out.println("Enter a emp ID");
+	int empID = input.nextInt();
+	String dept = input.next();
+	
+	switch(empID) {
+	case 1 ->System.out.println("Rishekesh b");	
+	case 2 ->System.out.println("Jermy renner");
+	case 3 ->{
+		System.out.println("This is 3rd case");
+		switch(dept){
+		case "IT" -> System.out.println("Information technology dept");
+		case "Management" -> System.out.println("Management department");	
+		default -> System.out.println("No such department");	
+		}
+	}
+	default -> System.out.println("Enter valid ID");
+								
+	}
+}	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
