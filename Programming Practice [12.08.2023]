@@ -1,0 +1,58 @@
+//Programming practice Basic to Intermediate
+//Basic programming
+
+//1.Area Of Circle Java Program
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		//area of circle= pi*r*r;
+		
+		System.out.print("Enter the radius: ");
+		float radius = input.nextFloat();
+		float pi = 3.14f;
+		
+		double area = pi*radius*radius;
+		System.out.print("Enter the radius: "+area);
+	}
+}
+
+//2.Area Of Triangle
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		//area of triangle = 1/2 * base * height;
+		
+		System.out.print("Enter the Base: ");
+		int base = input.nextInt();
+		System.out.print("Enter the height: ");
+		int height = input.nextInt();
+		
+		double area =   (base* height)/2;
+		System.out.print("The area of traingle is: "+area);
+	}
+}
+
+
+//3.Area Of Rectangle Program
+
+
+
+
+
+
+
+
+
+
