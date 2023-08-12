@@ -1,1 +1,173 @@
+//Methods in JAVA
+
+//1. Use methods to print sum of numbers 5 times.
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		sum();
+		sum();
+		sum();
+		sum();
+		sum();
+	}
+	/*A method is like function in java, it helps us to avoid repetiton of code thus saving the time 
+  *needed for coding 1000 of same lines of code.*/
+	//Changes commited to the function reflects on the main method as well.
+  static void sum() {
+		Scanner input = new Scanner(System.in);
+		int num1,num2,sum;
+		System.out.print("Enter num1: ");
+		num1 = input.nextInt();
+		System.out.print("Enter num2: ");
+		num2 = input.nextInt();
+		sum = num1+num2;
+		System.out.println("The sum is: "+sum);
+		
+	}
+}
+
+//2.Return an integer with return type int.
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		int ans = sum2();
+		System.out.println("The sum is: "+ans);
+	}
+	static int sum2(){
+		Scanner input = new Scanner(System.in);
+		int num1,num2,sum;
+		System.out.print("enter num1: ");
+		num1 = input.nextInt();
+		System.out.print("enter num1: ");
+		num2 = input.nextInt();
+		sum = num1+num2;
+		return sum;/*If a return statement is mention in a function, it basically means the function is 
+    *over and it will return a value to the main function*/
+		
+		
+	}
+}
+
+
+//3. Return a string
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		String ans = name();
+		System.out.println("The name is, "+ans);
+	}
+	static String name(){
+		Scanner input = new Scanner(System.in);
+		String name;
+		System.out.print("enter a name: ");
+		name = input.next();
+		return name; 
+		
+		
+	}
+}
+
+
+//4. Passing in parameters 
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		int ans = sum(1,2); //giving a:1, b:2
+		System.out.println("The sum is: "+ans);
+	}
+	
+	static int sum(int a,int b) { //parameters given
+		int sum = a+b;
+		return sum;
+	}
+	
+
+}
+
+//5. SCOPE
+//There are 3 types of scopes
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main (String[] args) {
+	//scope - means where we can access our variables
+	/*Basically - Anything that is initialized outside a block, can be used inside another block.
+  *But anything that is initialized inside a block cannot be used outside */
+	int a = 10; /* IMP:- Whenever we use int(or any dataType before a variable, That is called 
+  *INITIALIZING. After that if we use just the variable to change the value stored inside, 
+  *it is called updating. Eg:- int a=100(initializing), a=10(updating) */
+	int b = 20;
+	
+	{
+		//1]This is a block scope
+		//int a = 78; shows error that its already initialized
+		a = 100; //it rewrites/updates the previous a value. Hence in (1). It will print 100
+		int c=90;//values initialized in the block will remain inside the block
+	}
+	System.out.println(a);//(1)
+	//System.out.println(c); //Shows an error, because it is unable to reach c inside the block
+	
+	//2]scoping in for loops
+		for(int i=0; i<=4;i++) {
+			System.out.println("hello");
+		}
+		//System.out.println(i); //can't be defined outside the for loop block, will show error.
+	
+	}
+	
+	
+	
+	static void random(int marks) {
+		//3]scope of a method:- this change will only be valid in this function scope only
+		int num = 67;
+		System.out.println(num);
+		
+	}
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
