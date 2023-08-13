@@ -47,6 +47,485 @@ public class Student{
 
 //3.Area Of Rectangle Program
 
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		//Area of rectangle = length * breadth;
+		System.out.print("Enter the length: ");
+		int length = input.nextInt();
+		System.out.print("Enter the breadth: ");
+		int breadth = input.nextInt();
+		
+		int area = length*breadth;
+		System.out.println("The area is: " + area);
+	}
+}
+
+//4. Area Of Isosceles Triangle
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		//Area of  Isosceles Triangle = (base*height)/2;
+		System.out.print("Enter the base: ");
+		double base = input.nextInt();
+		System.out.print("Enter the height: ");
+		double height = input.nextInt();
+		
+		double area = (base*height)/2;
+		System.out.println("The area is: " + area);
+	}
+}
+
+//5.Area Of Parallelogram
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		//Area of Parallelogram = (base*height);
+		System.out.print("Enter the base: ");
+		double base = input.nextDouble();
+		System.out.print("Enter the height: ");
+		double height = input.nextDouble();
+		
+		double area = (base*height);
+		System.out.println("The area is: " + area);
+	}
+}
+
+
+//6. package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		//Area Of Rhombus = (d1*d2)/2;
+		System.out.print("Enter the diagonal 1: ");
+		double d1 = input.nextDouble();
+		System.out.print("Enter the daigonal 2: ");
+		double d2 = input.nextDouble();
+		
+		double area = (d1*d2)/2;
+		System.out.println("The area is: " + area);
+	}
+}
+
+
+//7. Area Of Equilateral Triangle
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		//Area Of Equilateral Triangle =(Math.sqrt(3)/4)*(a*a) ;
+		
+		System.out.print("Enter the side of triangle: ");
+		double a = input.nextDouble();
+		
+		
+		double area = (Math.sqrt(3)/4)*(a*a);
+		System.out.println("The area is: " + area);
+	}
+}
+
+
+//8.Perimeter Of Circle
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		//Perimeter Of Circle = 2*pi*r ;
+		
+		System.out.print("Enter the radius of circle: ");
+		float r = input.nextFloat();
+		float pi = 3.14f;
+		
+		
+		double area = 2*pi*r;
+		System.out.println("The area is: " + area);
+	}
+}
+
+
+//9.Perimeter Of Equilateral Triangle
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		//Perimeter Of Equilateral Triangle = 3*a ;
+		
+		System.out.print("Enter the side of the triangle: ");
+		float a = input.nextFloat();
+		
+		
+		double area = 3*a;
+		System.out.println("The area is: " + area);
+	}
+}
+
+
+
+//10. Perimeter Of Parallelogram
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		//Perimeter Of Parallelogram = 2*(a+b)  ;
+		
+		System.out.print("Enter one side of the parallelogram: ");
+		float a = input.nextFloat();
+		System.out.print("Enter another side of the parallelogram: ");
+		float b = input.nextFloat();
+		
+		
+		double area = 2*(a+b);
+		System.out.println("The area is: " + area);
+	}
+}
+
+
+//11. Perimeter Of Rectangle
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		//Perimeter Of Rectangle = 2*(length+width)  ;
+		
+		System.out.print("Enter length: ");
+		float length = input.nextFloat();
+		System.out.print("Enter width: ");
+		float width = input.nextFloat();
+		
+		
+		double area = 2*(length+width);
+		System.out.println("The area is: " + area);
+	}
+}
+
+
+//12.Perimeter Of Square
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		//Perimeter Of Rectangle = 4*side  ;
+		
+		System.out.print("Enter the side: ");
+		float side = input.nextFloat();
+		
+		
+		
+		double area = 4*side;
+		System.out.println("The area is: " + area);
+	}
+}
+
+
+
+//13.Perimeter Of Rhombus
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		//Perimeter Of Rhombus = 4*side  ;
+		
+		System.out.print("Enter the side: ");
+		float side = input.nextFloat();
+		
+		double area = 4*side;
+		System.out.println("The area is: " + area);
+	}
+}
+
+
+
+//14.Volume Of Cone Java Program
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		//Volume of Cone = 1/3(pi * r * r * h)  ;
+		
+		System.out.print("Enter the radius: ");
+		float radius = input.nextFloat();
+		System.out.print("Enter the height: ");
+		float height = input.nextFloat();
+		float pi = 3.14f;
+		
+		double area = (pi*radius*radius*height)/3;
+		System.out.println("The area is: " + area);
+	}
+}
+
+
+//15.Volume Of Traingular Prism
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		//Volume Of Triangular Prism = (Apothem length * base length * height)/2  ;
+		
+		System.out.print("Enter the Apothem length: ");
+		float a = input.nextFloat();
+		System.out.print("Enter the Base: ");
+		float b = input.nextFloat();
+		System.out.print("Enter the height: ");
+		float h = input.nextFloat();
+		
+		double area = (a*b*h)/2;
+		System.out.println("The area is: " + area);
+	}
+}
+
+
+//16.Volume Of Cylinder
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		//Volume Of Cylinder = pi * r*r* h  ;
+		
+		System.out.print("Enter the radius: ");
+		float radius = input.nextFloat();
+		System.out.print("Enter the height: ");
+		float height = input.nextFloat();
+		
+		float pi = 3.14f;
+		
+		double area = pi*radius*radius*height;
+		System.out.println("The area is: " + area);
+	}
+}
+
+//17.Volume Of Sphere
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		//Volume Of Sphere = 4(pi*r*r*r)/3  ;
+		
+		System.out.print("Enter the radius: ");
+		float radius = input.nextFloat();
+		
+		float pi = 3.14f;
+		
+		double area = 4*(pi*radius*radius*radius)/3;
+		System.out.println("The area is: " + area);
+	}
+}
+
+
+
+//18.Volume Of Pyramid
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		//Volume Of Pyramid = (length*width*height)/3  ;
+		
+		System.out.print("Enter the length: ");
+		float length = input.nextFloat();
+		System.out.print("Enter the width: ");
+		float width = input.nextFloat();
+		System.out.print("Enter the height: ");
+		float height = input.nextFloat();
+		
+		double area = (length*width*height)/3;
+		System.out.println("The area is: " + area);
+	}
+}
+
+
+//19.Curved Surface Area Of Cylinder
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		//Curved Surface Area Of Cylinder = 2*pi*height  ;
+		
+		System.out.print("Enter the height: ");
+		float height = input.nextFloat();
+		float pi = 3.14f;
+		
+		double area = 2*pi*height;
+		System.out.println("The area is: " + area);
+	}
+}
+
+//20.Total Surface Area Of Cube
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		//Total Surface Area Of Cube = 6*a*a  ;
+		
+		System.out.print("Enter the area: ");
+		float area = input.nextFloat();
+		
+		double totalArea = 6*area*area;
+		System.out.println("The area is: " + totalArea);
+	}
+}
+
+
+//21.Fibonacci Series In Java Programs
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Enter the number limit: ");
+		int timesToPrint = input.nextInt();
+		
+		int num1 = 0;
+		int num2 = 1;
+		int i ;
+		System.out.print(num1+" "+num2);
+		
+		for(i=2;i<timesToPrint; i++) {
+			int temp = num2+num1;
+			System.out.print(" "+temp);
+			num1 = num2;
+			num2 = temp;
+		}
+		
+		
+	}
+}
+
+
+//22.Subtract the Product and Sum of Digits of an Integer
+
+
+//23.Input a number and print all the factors of that number (use loops).
+
+//24.Take integer inputs till the user enters 0 and print the sum of all numbers (HINT: while loop)
+
+//25.Take integer inputs till the user enters 0 and print the largest number from all.
+
+//26.Addition Of Two Numbers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
