@@ -486,8 +486,51 @@ public class Student{
 
 //22.Subtract the Product and Sum of Digits of an Integer
 
+System.out.println("enter the integer: ");
+		int number = input.nextInt();
+		int temp = number;
+		int sum = 0;
+		int product = 1;
+		
+		while(number != 0) { //To find digits of an integer
+			int remainder = number%10;
+			sum = sum+remainder;
+			product = product*remainder;
+			number = number/10;
+		}
+		
+		System.out.println("sum of digits of the number, "+temp+" is: "+sum);
+		System.out.println("product of digits of the number, "+temp+" is: "+product);
+		int difference = product - sum;
+		System.out.println("difference of product and sum of digits of, "+temp+" is: "+difference);
+		
+	}
+}
+		
 
 //23.Input a number and print all the factors of that number (use loops).
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter the number: ");
+		int number = input.nextInt();
+		
+		for(int i=1;i<=number;i++) {
+			if(number%i == 0) {
+				System.out.print(i+" ");
+			}
+		}
+		
+		
+	}
+}
+
 
 //24.Take integer inputs till the user enters 0 and print the sum of all numbers (HINT: while loop)
 
