@@ -534,9 +534,69 @@ public class Student{
 
 //24.Take integer inputs till the user enters 0 and print the sum of all numbers (HINT: while loop)
 
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		int count = 0;
+		int sum = 0;
+		
+		while(true) {
+			System.out.println("Enter a number");
+			int number = input.nextInt();
+			
+			if(number>0) {
+			sum = number+sum;
+			count++;
+			
+			}
+			else{
+				System.out.println("The sum is: "+sum);
+				System.out.print("Exit");
+				break;
+				
+			}
+		
+			
+		}
+		
+		
+		
+		
+	}
+}
+
+
 //25.Take integer inputs till the user enters 0 and print the largest number from all.
 
-//26.Addition Of Two Numbers
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter a number other than 0 to start and enter 0 to terminate: ");
+		int number = input.nextInt();
+		int a= 0;
+		
+		while(number!=0) {
+			System.out.println("enter a number: ");
+			number = input.nextInt();
+			
+			if(number>a) {
+				a=number;
+			}
+			System.out.println("The largest number is "+a);
+			
+		}
+	}
+}
 
 
 
