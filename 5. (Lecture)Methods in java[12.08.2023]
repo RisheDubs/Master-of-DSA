@@ -146,6 +146,137 @@ public class Student{
 }
 
 
+//6. Shadowing
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	static int x= 80;//gets shadowed at line 11
+	//Shadowing - using 2 variables with the same name within the scope that overlaps
+	public static void main(String[] args) {
+		System.out.println(x);//80
+		/* int x;//initializing a variable
+		*  System.out.println(x); //Throws an error. Scope will begin when the value is initialized
+		 * x=10;//declaring the variable
+		*/
+		int x = 40;
+		System.out.println(x);//40, shadowing the previous x value
+		fun();//80
+	}
+	static void fun() {
+		System.out.println(x);
+	}
+}
+
+
+//6. Variable arguments(varargs)
+
+package javatpoint;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Student{
+	//variable length arguments 
+	public static void main(String[] args) {
+		fun(51, 55, 55, 56, 58, 36, 97);//these are known as Variable length arguments
+	}
+	
+	static void fun(int ...v) {//if you don't know how many integers you are passing, do "int ...v", it internally takes it as a array of integers. Same can be done for char and strings as well.
+		System.out.println(Arrays.toString(v));
+	}
+}
+
+
+//7. Method overloading
+
+package javatpoint;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Student{
+	//Method overloading - takes place if 2 or more methods with same name exist, but with different arguments.
+	public static void main(String[] args) {
+		//eg:1-same function different data types
+		fun(1);
+		fun("rishe");
+		//eg:2-same function different parameters
+		int add = sum(2,3);
+		int add1 = sum(2,3,4);
+		System.out.println(add);
+		System.out.println(add1);
+		//eg:3- If you don't give any data, it will show error.
+		//fun();// it cannot be empty
+	
+	//eg1
+	}
+	static void fun(int roll) {
+		System.out.println(roll);
+	}
+	static void fun(String name) {
+		System.out.println(name);
+	}
+	//eg2
+	static int sum(int a, int b) {
+		return a+b;
+	}
+	static int sum(int a,int b,int c) {
+		return a+b+c;
+	}
+}
+
+
+
+//8. to check if a number is armstrong or not
+
+package javatpoint;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Student{
+	
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.println("enter a number to check whether armstrong or not: ");
+		int number = input.nextInt();
+		System.out.println(isArmstrong(number));//function call
+	}
+	
+	//function start
+	static boolean isArmstrong(int number) {
+		int original = number;
+		int sum = 0;
+		
+		while(number>0) {
+			int reminder = number%10;
+			number = number/10;
+			sum = sum+(reminder*reminder*reminder);
+		}
+		return original == sum;
+		/* The above code is a short form of
+		 * 
+		 * if(original == sum){
+		 * 	return true;
+		 * }
+		 * else{
+		 * 	return false;
+		 * }
+		 * 
+		 * the above code does this efficiently by giving tru is it is same, or false if it is not same.
+		 */
+	}//function end
+}
+
+
+
+
+
+
+
 
 
 
