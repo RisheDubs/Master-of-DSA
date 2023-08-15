@@ -1,1 +1,58 @@
+//1. Define two methods to print the maximum and the minimum number respectively 
+    among three numbers entered by the user.
+
+package javatpoint;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.print("value of a is: ");
+		int a = input.nextInt();
+		System.out.print("value of b is: ");
+		int b = input.nextInt();
+		System.out.print("value of c is: ");
+		int c = input.nextInt();
+		
+		int maxResult = maximum(a,b,c);
+		System.out.print("The maximum result is: "+maxResult);
+		
+		int minResult = minimum(a,b,c);
+		System.out.print("The minimum result is: "+minResult);
+		
+	}
+	
+	static int maximum(int a,int b,int c) {
+			if(a>=b && a>=c) {
+				return a;
+			}
+			else if(b>=c && b>=a) {
+				return b;
+			}
+			else {
+				return c;
+			}
+	}
+	
+	static int minimum(int a,int b,int c) {
+		if(a<=b && a<=c) {
+			return a;
+		}
+		else if(b<=c && b<=a) {
+			return b;
+		}
+		else {
+			return c;
+		}
+}
+}
+
+
+
+
+
+
 
