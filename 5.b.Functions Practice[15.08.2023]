@@ -50,6 +50,60 @@ public class Student{
 }
 }
 
+//2. Define a program to find out whether a given number is even or odd.
+
+package javatpoint;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Student{
+	
+	static boolean evenOrOdd(int number){
+		return number%2 == 0;
+	}
+	
+	public static void main(String[] args) {
+		System.out.println("To calculate if a number is even or odd: ");
+		boolean result = evenOrOdd(111);
+		if(result == true) {
+			System.out.println("is even");
+		}else {
+			System.out.println("is odd");
+		}
+	}
+}
+
+//3. A person is eligible to vote if his/her age is greater than or equal to 18. Define a method to find out if he/she is eligible to vote.
+
+package javatpoint;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Student{
+	
+	static boolean eligibleToVote(int age) {
+		return age >= 18;
+	}
+	
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.println("please input your age: ");
+		int age = input.nextInt();
+		
+		boolean result = eligibleToVote(age);
+		
+		if(result == true) {
+			System.out.println("You are eligible to vote");
+		}else {
+			System.out.println("you are not eligible to vote");
+		}
+	}
+}
+
+//4. Write a program to print the sum of two numbers entered by user by defining your own method.
+
 
 
 
