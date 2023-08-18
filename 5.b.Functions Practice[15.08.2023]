@@ -193,6 +193,90 @@ public class Student{
 
 //7. Define a method to find out if a number is prime or not.
 
+package javatpoint;
 
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Student{
+	static boolean isPrime(int number) {
+		if(number%2 != 0) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+
+	public static void main(String[] args) {
+		Scanner input=new Scanner(System.in);
+		System.out.println("enter the number to check prime or not: ");
+		int number = input.nextInt();
+		
+		boolean result = isPrime(number);
+		if(result == true) {
+			System.out.println(number+" is prime");
+		}else {
+			System.out.println(number+" is not prime ");
+		}
+	}
+}
+
+//8. Write a program that will ask the user to enter his/her marks (out of 100). Define a method that will display grades according to the marks entered as below:
+
+ 
+Marks        Grade 
+91-100         AA 
+81-90          AB 
+71-80          BB 
+61-70          BC 
+51-60          CD 
+41-50          DD 
+<=40          Fail 
+
+//the code
+package javatpoint;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Student{
+	
+	static void studentGrade(int num){
+		if(num>90 && num==100) {
+			System.out.println("AA");		
+		}else if(num>80 && num<=90){
+			System.out.println("AB");
+		}else if(num>70 && num<=80) {
+			System.out.println("BB");
+		}else if(num>60 && num<=70) {
+			System.out.println("BC");
+		}else if(num>50 && num<=60) {
+			System.out.println("CD");
+		}else if(num>40 && num<=50) {
+			System.out.println("DD");
+		}else if(num<=40) {
+			System.out.println("Fail");
+		}else{
+			System.out.println("Invalid score");
+		}
+	}
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter Your scores to know the grade: ");
+		int score = input.nextInt();
+		
+		studentGrade(score);
+		
+	}
+}
+
+//9.Write a program to print the factorial of a number by defining a method named 'Factorial'. Factorial of any number n is represented by n! and is equal to 1 * 2 * 3 * .... * (n-1) *n. E.g.-
+4! = 1 * 2 * 3 * 4 = 24 
+3! = 3 * 2 * 1 = 6 
+2! = 2 * 1 = 2 
+Also, 
+1! = 1 
+0! = 1
 
 
