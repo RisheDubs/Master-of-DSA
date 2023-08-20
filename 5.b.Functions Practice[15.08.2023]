@@ -384,4 +384,65 @@ public class Student{
 	}
 }
 
+//12. Define a method to Take two numbers and print the sum of both.
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter a number: ");
+		int a = input.nextInt();
+		System.out.println("Enter b number: ");
+		int b = input.nextInt();
+		
+		int result = addNumbers(a,b);
+		
+		System.out.println("The sum is: "+ result);
+		
+	}
+	static int addNumbers(int a, int b) {
+		int sum = a+b;
+		return sum;
+	}
+}
+
+//13. Define a method to Take a number as input and print the multiplication table for it.
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter the number to get its tables: ");
+		int number = input.nextInt();
+		
+		multiples(number);
+		
+	}
+	
+	static void multiples(int number) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter the number of times to print till: ");
+		int times = input.nextInt();
+		
+		for(int i =1; i<=times;i++) {
+			int multiple = number * i;
+			System.out.println(number+" X "+i+" = "+ multiple);
+		}
+		
+	}
+	
+}
+
+//14. Take 2 numbers as inputs and find their HCF and LCM.
+
 
