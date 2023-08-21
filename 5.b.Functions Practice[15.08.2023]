@@ -480,5 +480,206 @@ public class Student{
 	
 }
 
-//15. write a method to Keep taking numbers as inputs till the user enters ‘x’, after that print sum of all.
+first java - excrise but using methods:
+
+1] Write a method to print whether a number is even or odd, also take input from the user.
+
+sol] 
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter the number: ");
+		int number = input.nextInt();
+		
+		evenOrOdd(number);
+	}
+	
+	static void evenOrOdd(int number) {
+		if(number%2 == 0) {
+			System.out.println(number + " is Even");
+		}else {
+			System.out.println(number + " is Odd");
+		}
+		
+	}
+	
+}
+
+2] write a method to Take name as input and print a greeting message for that particular name.
+
+sol] 
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter the name: ");
+		String name = input.next();
+		
+		greetMe(name);
+	}
+	
+	static void greetMe(String name) {
+		System.out.println("Hello there, "+name);
+	}
+	
+}
+
+3] Define a method to input principal, time, and rate (P, T, R) from the user and find Simple Interest.
+
+sol]
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter the Principle: ");
+		float principle = input.nextFloat();
+		System.out.println("Enter the time: ");
+		float time = input.nextFloat();
+		System.out.println("Enter the rate: ");
+		float rate = input.nextFloat();
+		
+		simpleInterest(principle,time,rate);
+		
+	}
+	
+	static void simpleInterest(float principle, float time, float rate) {
+		
+		float result = (principle*time*rate)/100;
+		System.out.println("The simple Interest is: ");
+		System.out.println(result);
+		
+	}
+	
+}
+
+4] Take in two numbers and an operator (+, -, *, /) and calculate the value. (Use if conditions)
+
+sol]
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter number 1: ");
+		int number1 = input.nextInt();
+		System.out.println("Enter number 2: ");
+		int number2 = input.nextInt();
+		System.out.println("Enter the operation (+,-,/,*): ");
+		char operator = input.next().trim().charAt(0);
+		
+		calculator(number1,number2,operator);
+		
+	}
+	
+	static void calculator(int number1,int number2, char operator) {
+		
+		if(operator == '+') {
+			int sum = number1+number2;	
+			System.out.println("the sum is: "+sum);
+		}
+		if(operator == '-') {
+			int subtraction = number1-number2;
+			System.out.println("the subtraction is: "+subtraction);
+		}
+		if(operator == '/') {
+			int division = number1/number2;	
+			System.out.println("the division is: "+division);
+		}
+		if(operator == '*') {
+			int product = number1*number2;	
+			System.out.println("the product is: "+product);
+		}
+		else {
+			System.out.println("Enter a proper operation. ");
+		}
+		
+		
+	}
+	
+}
+
+5] Take 2 numbers as input and print the largest number.
+
+sol]
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter number 1: ");
+		int number1 = input.nextInt();
+		System.out.println("Enter number 2: ");
+		int number2 = input.nextInt();
+		
+		int result = greatestOutOfTwo(number1,number2);
+		System.out.println("The greatest among the 2 numbers is: "+result);
+	}
+	
+	static int greatestOutOfTwo(int number1,int number2) {
+	
+		if(number1>number2) {
+			return number1;
+		}else {
+			return number2;
+		}
+	
+}
+}
+
+6] Input currency in rupees and output in USD.
+
+sol]
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter rupees: ");
+		double rupees = input.nextDouble();
+		
+		
+		double result = currency(rupees) ;
+		System.out.println("The usd convertion is: "+result);
+	}
+	
+	static double currency(double rupees)   {
+	
+		double usd = rupees / 81;
+		return usd;
+		
+	
+}
+}
+
+7] To calculate Fibonacci Series up to n numbers.
+
+sol]
 
