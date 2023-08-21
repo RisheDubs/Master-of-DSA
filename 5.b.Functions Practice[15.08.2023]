@@ -443,6 +443,42 @@ public class Student{
 	
 }
 
-//14. Take 2 numbers as inputs and find their HCF and LCM.
+//14.Write a method to Take 2 numbers as inputs and find their HCF and LCM.
 
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter number1: ");
+		int number1 = input.nextInt();
+		System.out.println("Enter number2: ");
+		int number2 = input.nextInt();
+		
+		hcfAndLcm(number1,number2);
+		
+	}
+	
+	static void hcfAndLcm(int number1, int number2) {
+		int hcf = 1;
+		int lcm = 1;
+		int min =(number1>number2?number1:number2); //If one of the numbers is long, it takes long time to compile. During these times we can use min to find the minimum out of 2 numbers.
+		for(int i=1;i<=min;i++) {
+			if(number1%i == 0 && number2%i == 0) {
+				hcf = i;
+			}
+		}
+		lcm = (number1*number2)/hcf;
+		System.out.println("HCF of 2 numbers is: "+hcf);
+		System.out.println("LCM of 2 numbers is: "+lcm);
+		
+	}
+	
+}
+
+//15. write a method to Keep taking numbers as inputs till the user enters ‘x’, after that print sum of all.
 
