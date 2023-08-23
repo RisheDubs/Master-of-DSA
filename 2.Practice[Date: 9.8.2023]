@@ -250,33 +250,41 @@ package javatpoint;
 import java.util.Scanner;
 
 public class Student{
-public static void main(String[] args) {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
 		
-	Scanner input = new Scanner(System.in);
-	
-	System.out.println("Enter the number ot check armstrong ot not: ");
-	int number = input.nextInt();
-	int armNumber = 0;
-	int dummy = number;
-	
-	while(number>0) {
-		int reminder = number%10;
-		number = number/10;
-		armNumber += Math.pow(reminder,3);
-		
-		
-	}
-	if(armNumber == dummy) {
-		System.out.println(armNumber+" is armstrong number");
-	}else {
-		System.out.println("its not armstrong number");
-	}
+		System.out.println("Enter the low value: ");
+		int low = input.nextInt();
+		System.out.println("Enter the high value: ");
+		int high = input.nextInt();
 	
 	
+		for(int number = low+1; number<high; ++number) {
+			
+			int result =0;
+			int count = 0;
+			int temp = number;
+			
+			
+			while(temp!=0) {
+				temp /=10;
+				++count;
+			}
+			
+			temp = number; //again intialize temp to number, because previous temp is already used. Now the previous temp value is 0.
+			
+			while(temp!=0) {
+				int reminder = temp%10;
+				result += Math.pow(reminder,count);
+				temp /= 10;
+			}
+			
+			if(result == number) {
+				System.out.println(number + " ");
+			}
+		}	
+	}	
 }
-}
-
-
 
 
 
