@@ -1,1 +1,89 @@
+//  Intermediate Java Programs
+// Solving using methods and loops
 
+//1] Factorial Program In Java //we used while loop
+
+sol]
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter the number: ");
+		int number = input.nextInt();
+		
+		factorial(number);
+	}
+	
+	static void factorial(int number) {
+		int originalNumber = number; 
+		long result = 1;
+		 while(originalNumber != 0) {
+			 result = result * originalNumber;
+			 originalNumber -= 1;
+		 }
+		 System.out.println("The factorial of "+number+" is: "+result);
+		
+	}
+}
+
+//2] Calculate Average Of N Numbers
+
+sol]
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("How many inputs should I take: ");
+		int number = input.nextInt();
+		
+		int sum=0;
+		System.out.println("Enter the numbers: ");
+		for(int i = 1; i<=number;i++) {
+		sum = sum+input.nextInt();	//user inputs the values depending on the limit they have choosen
+		}
+		
+		float average = sum/(float)number;
+		System.out.println("The average of 10 numbers is: "+ average);
+	}
+	
+	
+}
+
+//3] Calculate Discount Of Product
+
+sol]
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("whats the price: ");
+		float price = input.nextFloat();
+		System.out.println("whats the dicount: ");
+		float discount = input.nextFloat();
+		
+		discountPrice(price,discount);
+		
+	}
+	
+	static void discountPrice(float price,float discount) {
+		float afterDiscountPrice = price * (discount/100);
+		float newPrice = price - afterDiscountPrice;
+		System.out.println("The final price is: "+ newPrice);
+	}
+	
+	
+}
+
+//4] Calculate Distance Between Two Points
