@@ -710,5 +710,88 @@ public class Student{
 
 }
 
-8] 
+8] To find out whether the given String is Palindrome or not.
+
+sol]
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter the String to check palindrome or not: ");
+		String name = input.next();
+		
+		paliCheck(name);
+	}
+	
+	static void paliCheck(String name) {
+		
+		String reverse = "";
+		
+		int length = name.length();
+		
+		for(int i = length-1;i>=0;i--) {
+			reverse = reverse + name.charAt(i);
+		}
+		
+		if(name.equals(reverse)) {
+			System.out.println(reverse +" "+ true);
+		}else {
+			System.out.println(reverse +" "+ false);
+		}
+	}
+	
+}
+
+9] To find Armstrong Number between two given number.
+
+sol]
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter the low value: ");
+		int low = input.nextInt();
+		System.out.println("Enter the high value: ");
+		int high = input.nextInt();
+		
+		armstrong(low,high);
+	}
+	static void armstrong(int low,int high){
+		
+		for(int number = low+1; number<high; ++number) {
+			
+			int result =0;
+			int count = 0;
+			int temp = number;
+			
+			
+			while(temp!=0) {
+				temp /=10;
+				++count;
+			}
+			
+			temp = number; //again initialize temp to number, because previous temp is already used. Now the previous temp value is 0.
+			
+			while(temp!=0) {
+				int reminder = temp%10;
+				result += Math.pow(reminder,count);
+				temp /= 10;
+			}
+			
+			if(result == number) {
+				System.out.println(number + " ");
+			}
+		}	
+	}	
+}
+
+
 
