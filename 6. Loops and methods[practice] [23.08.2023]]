@@ -88,4 +88,109 @@ public class Student{
 
 //4] Calculate Distance Between Two Points
 
+sol]
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter the value of x and y for first point");
+		System.out.print("Enter value for x1: ");
+		double x1 = input.nextDouble();
+		System.out.print("Enter value for y1: ");
+		double y1 = input.nextDouble();
+		
+		System.out.println("Enter the value of x and y for second point");
+		System.out.print("Enter value for x2: ");
+		double x2 = input.nextDouble();
+		System.out.print("Enter value for y2: ");
+		double y2 = input.nextDouble();
+		
+		distance(x1,x2,y1,y2);
+	}
+	
+	static void distance(double x1,double x2,double y1,double y2) {
+		
+		double distance;
+		distance = Math.sqrt(Math.pow((x2-x1),2) + Math.pow((y2-y1),2));
+		System.out.println("The distance between the points is: "+distance);
+	}
+	
+	
+}
+
+//5. Calculate Commission Percentage
+
+sol] 
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		//commission amount= (sale price * commission percentage)/100 
+		//i.e: - commission percentage = (commission amount * 100)/sale price;
+		
+		System.out.print("Enter the comission amount: ");
+		double commissionAmount = input.nextDouble();
+		System.out.print("Enter the Sale price: ");
+		double salePrice = input.nextDouble();
+		
+		double result = commissionPercentage(commissionAmount,salePrice);
+		System.out.println("The commission Percentage is: "+result);
+	}
+	
+	//ca - commission Amount, sp - sale Price, cp -commission Percentage 
+	
+	static double commissionPercentage(double ca,double sp) {
+		double cp = (ca * 100)/sp;
+		return cp;
+	}
+}
+
+6] Power In Java
+
+sol] 
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		//The function java.lang.Math.pow() always returns a double datatype.
+		//Thats why we type cast it using int.
+
+		System.out.print("Enter the number to calculate its power: ");
+		int number = input.nextInt();
+		System.out.print("Enter the power: ");
+		int power = input.nextInt();
+		
+		int result = powerJava(number,power);
+		System.out.println("The power of "+number+" is: "+result);
+	}
+	
+	static int powerJava(int number, int power) {
+		int powerCalculate = (int) (Math.pow(number,power));
+		return powerCalculate;
+	}
+	
+	
+}
+
+7] Calculate Depreciation of Value
+
+sol]
+//Depreciated Cost=Purchase Price (or Cost Basis)−CD, where: CD=Cumulative Depreciation
+
+
+
+​
+
 
