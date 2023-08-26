@@ -189,8 +189,101 @@ public class Student{
 sol]
 //Depreciated Cost=Purchase Price (or Cost Basis)−CD, where: CD=Cumulative Depreciation
 
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.print("Enter the purchasePrice: ");
+		int purchasePrice = input.nextInt();
+		System.out.print("Enter the Cumulative Depreciation: ");
+		int cumulativeDepreciation = input.nextInt();
+		
+		int result = depreciation(purchasePrice,cumulativeDepreciation);
+		System.out.print("The Depreciation is: "+result);
+	}
+	
+	static int depreciation(int pP, int cD) {
+		int depreciationValue = pP - cD;
+		return depreciationValue;
+	}
+	
+	
+}
+
+8] Calculate Batting Average
+
+sol]
+//Batting Average= Total runs / (innings – notOut)
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		
+		Scanner input = new Scanner(System.in);
+		
+		System.out.print("Enter The number of runs: ");
+		int runs = input.nextInt();
+		System.out.print("Enter The number of innings: ");
+		int innings = input.nextInt();
+		System.out.print("Enter The number of not outs: ");
+		int notOut = input.nextInt();
+		
+		batting(runs,innings,notOut);
+		
+	}
+	
+	static void batting(int totalRuns, int innings, int notOut) {
+		double battingAvg;
+		battingAvg =totalRuns/(innings-notOut); 
+		System.out.println("The total batting average of a player is: "+battingAvg);
+	}
+}
 
 
-​
+​9] Calculate CGPA Java Program
+
+sol]
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		
+		int number = 5; //number of subs
+		double[] marks = {90,89,70,80,90}; //each sub marks
+		double cgpa = totalCgpa(marks,number);
+		System.out.println("cgpa= "+String.format("%.1f", cgpa));
+		
+		System.out.println("cgpa percentage = "+String.format("%.2f", cgpa * 9.5));
+	}
+	
+	static double totalCgpa(double[] marks,int number) {
+		double grade[] = new double[number];
+		double cgpa;
+		double sum=0;
+		
+		for(int i=0;i<number;i++) {
+			grade[i] = (marks[i]/10);
+		}
+		for(int i=0; i<number;i++) {
+			sum = sum+grade[i];
+		}
+		cgpa = sum/number;
+		return cgpa;
+	}
+}
+
+10] Compound Interest Java Program
+
+sol]
+
+
 
 
