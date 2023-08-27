@@ -284,6 +284,106 @@ public class Student{
 
 sol]
 
+package javatpoint;
 
+import java.util.Scanner;
 
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		
+		System.out.print("Enter the Princial(p): ");
+		double principal = input.nextDouble();
+		System.out.print("Enter the time(t): ");
+		double time = input.nextDouble();
+		System.out.print("Enter the rate(r): ");
+		double rate = input.nextDouble();
+		System.out.print("Enter the number of compounding a year(n): ");
+		double number = input.nextDouble();
+		
+		compoundInterest(principal,rate,time,number);
+		
+	}
+	
+	static void compoundInterest(double principle,double rate, double time,double number) {
+		
+		double CI;
+		double amount = principle * (Math.pow((1+rate/100),(number*time)));
+		CI = amount - principle;
+		System.out.println("The amount is: "+amount);
+		System.out.println("The Compound Interest is: "+CI);
+	}
+	
+	
+}
+
+11]Calculate Average Marks
+
+sol]
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		
+		System.out.print("Enter the number of subjects: ");
+		int number = input.nextInt();
+		int totalMarks = 0;
+		int marks;
+		
+		for(int i = 0; i<number;i++) {
+			System.out.print("Enter the marks for one subject: ");
+			marks = input.nextInt();
+			totalMarks += marks;
+		}
+		
+		average(number,totalMarks);
+		
+	}
+	
+	static void average(int number, int totalMarks) {
+		double avg = totalMarks/number;
+		System.out.println("the average is: "+avg);
+	}
+	
+}
+
+12] Sum Of N Numbers
+
+sol] 
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter the number of times the loop should run: ");
+		int times = input.nextInt();
+		
+		sumOfN(times);
+		
+	}
+	static void sumOfN(int times) {
+		Scanner input = new Scanner(System.in);
+		
+		int sum = 0;
+		for(int i=0;i<times;i++) {
+			System.out.print("Enter the number to add: ");
+			int number = input.nextInt();
+			sum = sum+number;
+		}
+		System.out.println("The sum of N numbers is: "+sum);
+	}
+}
+
+13] Armstrong Number In Java
+
+sol]
 
