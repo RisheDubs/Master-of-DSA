@@ -386,4 +386,128 @@ public class Student{
 13] Armstrong Number In Java
 
 sol]
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter the number: ");
+		int number = input.nextInt();
+		
+		boolean res = armstrongCheck(number);
+		
+		if(res == true) {
+			System.out.println(number+" is armstrong number");
+		}else {
+			System.out.println(number+" is not armstrong number");
+		}
+	}
+	
+	static boolean armstrongCheck(int number) {
+		int temp = number;
+		int result = 0;
+		int count = 0;
+		
+		while(temp!=0) {
+				temp/=10;
+				count++;
+		}
+		
+		temp = number;
+		
+		while(temp!=0) {
+			int remainder = temp%10;
+			result += Math.pow(remainder, count);
+			temp = temp/10;
+		}
+		
+		return number == result;
+	}
+}
+
+14] Find Ncr & Npr
+
+sol]
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter the number: ");
+		int number = input.nextInt();
+		System.out.println("Enter the ways: ");
+		int ways = input.nextInt();
+		
+		pNc(number, ways);
+		
+	}
+	//permutations N Combinations method
+	static void pNc(int number,int ways) {
+		int i;
+		int n = 1;
+		int r =1;
+		int b =1;
+		
+		for(i = 1; i<=number; i++) {
+			n = n*i;
+		}
+		for(i = 1; i<=ways; i++) {
+			r = r*i;
+		}
+		
+		int base = number-ways;
+		
+		for(i = 1; i<=base;i++) {
+			b = b*i;
+		}
+		
+		int ncr = n/(r*b);
+		System.out.println("The possible combinations are: "+ncr);
+		int npr = n/b;
+		System.out.println("The possible permutations are: "+npr);
+	}
+	
+}
+
+15] Reverse A String In Java
+
+sol] 
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter the name: ");
+		String name = input.next();
+		
+		reverseString(name);
+	}
+	
+	static void reverseString(String name) {
+		String rev = "";
+		int length = name.length();
+		
+		for(int i=0; i<length;i++) {
+			char ch = name.charAt(i);
+			rev = ch+rev; //watch out, rev+ch and ch+rev are 2 different things...
+		}
+		System.out.println(rev);
+		
+	}
+	
+}
+
+16] Find if a number is palindrome or not
+
+sol]
+
 
