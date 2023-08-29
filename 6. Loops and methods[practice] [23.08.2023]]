@@ -510,4 +510,86 @@ public class Student{
 
 sol]
 
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter the number: ");
+		int number = input.nextInt();
+		
+		boolean finalResult = palindrome(number);
+		
+		if(finalResult == true) {
+			System.out.println(number+" is palindrome");
+		}else {
+			System.out.println(number+" is not palindrome");
+		}
+	}
+	
+	static boolean palindrome(int number) {
+		
+		int temp = number;
+		int result = 0 ;
+		
+		while(temp!=0) {
+		int remainder = temp % 10; 
+		result = result * 10 + remainder;
+		temp /= 10;
+		}
+		return number == result; 
+		
+		
+	}
+	
+	
+}
+
+17] Future Investment Value
+
+sol]
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		/*  Formula:
+		 *  FV = PV * Math.pow((1+i/100),N);
+		 *  
+		 *  Given:
+		 *  FV = Future Value
+		 *  PV = Present Value
+		 *  i = interest paid by the investment
+		 *  N = number of periods the investment will be held
+		 */
+		
+		
+		System.out.print("Enter the Present value(PV): ");
+		double PV = input.nextDouble();
+		System.out.print("Enter the interest(i): ");
+		double i = input.nextDouble();
+		System.out.print("Enter the time periods investments will be held: ");
+		double N = input.nextDouble();
+		
+		futureInvestment(PV,i,N);
+	}
+	
+	static void futureInvestment(double PV,double i,double N) {
+		
+		double FV = PV * Math.pow((1+i/100),N);
+		System.out.println("The Future Investment is "+FV);
+	}
+	
+	
+}
+
+18] HCF Of Two Numbers Program
+
+sol]
 
