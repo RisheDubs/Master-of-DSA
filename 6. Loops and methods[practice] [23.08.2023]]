@@ -592,4 +592,114 @@ public class Student{
 18] HCF Of Two Numbers Program
 
 sol]
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.print("Enter the First value: ");
+		int num1 = input.nextInt();
+		System.out.print("Enter the Second value: ");
+		int num2 = input.nextInt();
+		
+		hcf(num1,num2);
+	}	
+	
+	static void hcf(int a,int b) {
+		
+		while(a != b) {
+			if(a>b) {
+				a = a-b;	
+			}
+			if(b>a) {
+				b = b-a;
+			}
+			if(a==0) {
+				System.out.println(b+" is the hcf");
+				break; //add break to prevent infinite loop
+			}
+			if(b==0) {
+				System.out.println(a+" is the hcf");
+				break;
+			}
+		}
+		if(a==b) {
+			System.out.println(a+" is the hcf");
+		}
+	}
+}
+
+19] LCM Of Two Numbers
+
+sol] 
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.print("Enter the First value: ");
+		int num1 = input.nextInt();
+		System.out.print("Enter the Second value: ");
+		int num2 = input.nextInt();
+		
+		lcm(num1,num2);
+	}	
+	
+	static void lcm(int a,int b) {
+		
+		int lcm = (a>b)?a:b;
+		
+		while(true) {
+			if(lcm%a==0 && lcm%b==0) {
+				System.out.println("LCM of 2 numbers is "+lcm);
+				break;
+			}
+			++lcm;
+		}
+	}
+}
+
+20] Java Program Vowel Or Consonant
+
+sol]
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.print("Enter the character: ");
+		char character= input.next().charAt(0);
+		
+		vowelOrConsonent(character);
+	}	
+	static void vowelOrConsonent(char ch) {
+		switch(ch) {
+		case'a':
+		case'e':
+		case'i':
+		case'o':
+		case'u':
+			System.out.println("It is a vowel");
+			break;
+		default:
+			System.out.println("It is a consonent");
+		}
+	}
+	
+	
+}
+
+21] Perfect Number In Java
+
+sol]
+
 
