@@ -702,4 +702,126 @@ public class Student{
 
 sol]
 
+package javatpoint;
 
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.print("Enter the number to check : ");
+		int number = input.nextInt();
+		
+		perfectNumber(number);
+	}	
+	
+	static void perfectNumber(int num) {
+		int sum = 0;
+		int temp = num;
+		for(int i=1;i<temp;i++) {
+			if(temp%i==0) {
+				sum = sum+i;
+			}
+		}
+		if(sum == num) {
+		    System.out.println(num+" is a perfect number");
+		}else {
+			System.out.println(num+" is not a perfect number");
+		}
+	}
+	
+}
+
+22] Check Leap Year Or Not
+
+sol]
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.print("Enter the year to check : ");
+		int year = input.nextInt();
+		
+		leapYear(year);
+	}	
+	
+	static void leapYear(int year) {
+		if(year%4==0) {
+			if(year%100==0) {
+				if(year%400==0) {
+					System.out.println("leap year");
+				}else {
+					System.out.println("not leap year");
+				}
+			}else {
+				System.out.println("leap year");
+			}
+		}else {
+			System.out.println("not leap year");
+		}
+	}
+	
+}
+
+23] Sum Of A Digits Of Number
+
+sol]
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.print("Enter the number : ");
+		int number = input.nextInt();
+		
+		sumOfDigits(number);
+	}	
+	
+	static void sumOfDigits(int num) {
+		int sum = 0;
+		int reminder;
+		while(num!=0) {
+			reminder = num%10;
+			sum = sum+reminder;
+			num /= 10;
+		}
+		System.out.println(sum);
+	}
+	
+}
+
+24] Kunal is allowed to go out with his friends only on the even days of a given month.
+    Write a program to count the number of days he can go out in the month of August.
+
+sol]
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.print("Enter the number of days in that particular month : ");
+		int days = input.nextInt();
+		
+		daysOfMonth(days);
+	}	
+	
+	static void daysOfMonth(int days) {
+		int count = 0;
+		for(int i=1; i<=days/2;i++){
+		count++;
+		}
+		System.out.println("Kunal can go out for, "+count+" days!");
+	}
+	
+}
