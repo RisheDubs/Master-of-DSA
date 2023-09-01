@@ -1,0 +1,135 @@
+//  beginning of DSA
+// CHAPTER-1: ARRAYS
+
+//SPL NOTE: In java primitives are stored in stack memory only, but all the other object types such as String type, Array type are stored in heap memory.
+
+//1] What is array, What are its components
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		//Arrays - Array is a collection of dataTypes
+		
+		/*syntax
+		* datatype[] variable_name = new datatype[size];
+		*/
+		
+		//eg:- store 5 roll numbers:
+		int[] rnos = new int[5];
+		/*
+		 * Certain rules about arrays:
+		 * 1. The dataype(int[]) represent the types of data being stored in the array.
+		 * 2. All the type of the data in the array should be same.
+		 * 	eg:- int[] numbers = {22,33,'c',45}; - gives error!
+		 * 3. Array objects are stored in heap(Not just array, but all objects... But for now we can consider this).
+		 * 4. Heap objects are not continous.[Continous here means that, in c++ the array are stored in the ram, one-by-one in order(eg:-1,2,3,4). But in java, it is not proven to be stored continous. eg:-)It may be) 1,3,2,4.
+		 * 5. Dynamic memory allocation takes place during run time.
+		 *  hence, java is not continous, and it depends on JVM(heap,stack memory depends on this).
+		 */
+		
+		//or directly3
+		int[] rnos2 = {22,34,56,78,90};
+		/*
+		 * What is in the above codes:
+		 * 1.a. int[] ros; - (declaration) of array. ros is getting defined in a stack.
+		 * 	 b. ros = new int[5] - (initialisation) actually object is being created in the memory (heap).
+		 *   c.rnos is the reference variable.
+		 * 
+		 * 2.a.int[] arr - happens at compiletime
+		 * 	 b.new int[5] - happens at run time. This is called DYnamic memory allocation.	
+		 * 
+		 * 3. print(arr[2]);  gives value 56. This is called Index of an array.
+		 * 
+		 * 4. new - is used to create an object.[for user defined input).
+		 */
+	}	
+}
+
+//2. what is NULL, basic input program using array.
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		//eg1:- demonstration of using an array with int data type
+		int[] ros;//reference variable
+		ros = new int[5];//creates an array [0,0,0,0,0]
+		
+		System.out.println(ros[1]);// return value, 0
+		
+		//eg2:- demonstration of using an array with String data type
+		String arr[] = new String[5];
+		
+		System.out.println(arr[3]);// returns NULL.
+		
+		/* What is NULL?
+		 * NULL is not a keyword, but a Literal(,special value). It cannot be assigned to primitives such as int. 
+		 * Only to non-primitives it can be given. It is a by default value of reference variables.
+		 */ 
+		
+	}	
+	
+}
+
+//Excersise:- Basic program to add values.
+
+sol] package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		int[] roll = new int[4];
+		
+		roll[0] = 21;
+		roll[1] = 34;
+		roll[2] = 65;
+		roll[3] = 87;
+		
+		System.out.println(roll[3]);
+
+  // if we try to print roll[4] - we get an out of bound error.
+	}	
+	
+}
+
+// Since we used only 4 as length we inputed manually. But inorder to store about 100 values, we can use for loop
+// The above program using for-loop can be shown like this
+
+package javatpoint;
+
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		int[] arr = new int[5];
+		
+		System.out.println("Enter the numbers to be added in the array: ");
+		for(int i=0;i<arr.length;i++) { //Here arr.length, is used to represent the arrays length in case we don't know the arrays length.
+			arr[i] = input.nextInt();
+		}
+		
+		//method 1
+//		System.out.println("The final array is:  ");
+//		for(int i=0; i<arr.length;i++) {
+//			System.out.print(arr[i]+" ");
+//
+//		}
+		
+		//The above for loop can be enhance by for each loop
+		
+		//method 2
+		for(int num : arr) {//for every element in array, print element
+			System.out.print(num+" ");//here num represents element of the array.
+		}
+		
+	}	
+	
+}
