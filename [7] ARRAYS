@@ -84,6 +84,7 @@ import java.util.Scanner;
 
 public class Student{
 	public static void main(String[] args) {
+//array of primitives
 		int[] roll = new int[4];
 		
 		roll[0] = 21;
@@ -103,6 +104,7 @@ public class Student{
 
 package javatpoint;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Student{
@@ -116,20 +118,49 @@ public class Student{
 			arr[i] = input.nextInt();
 		}
 		
-		//method 1
-//		System.out.println("The final array is:  ");
-//		for(int i=0; i<arr.length;i++) {
-//			System.out.print(arr[i]+" ");
-//
-//		}
+	//method 1 - for loop
+		System.out.println("The final array is:  ");
+		for(int i=0; i<arr.length;i++) {
+			System.out.print(arr[i]+" ");
+
+		}
 		
 		//The above for loop can be enhance by for each loop
 		
-		//method 2
+	//method 2 - for-each loop 
 		for(int num : arr) {//for every element in array, print element
 			System.out.print(num+" ");//here num represents element of the array.
 		}
 		
+	//method 3 - toString() method
+		System.out.println(Arrays.toString(arr));
+	}		
+}
+
+//the above example was for primitive data types
+//for non primitive data types the example below is illustarted
+
+package javatpoint;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		//array of objects
+		String[] str = new String[4];
+		System.out.println("Enter the strings with space between each: ");
+		for(int i = 0;i<str.length;i++) {
+			str[i] = input.next();
+		}
+		System.out.println(Arrays.toString(str));
 	}	
 	
 }
+
+op: - 
+Enter the strings with space between each: 
+aa bb cc dd
+[aa, bb, cc, dd]
