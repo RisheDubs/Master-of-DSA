@@ -1,4 +1,4 @@
-//  beginning of DSA
+ //  beginning of DSA
 // CHAPTER-1: ARRAYS
 
 //SPL NOTE: In java primitives are stored in stack memory only, but all the other object types such as String type, Array type are stored in heap memory.
@@ -48,7 +48,7 @@ public class Student{
 	}	
 }
 
-//2. what is NULL, basic input program using array.
+//2] what is NULL, basic input program using array.
 
 package javatpoint;
 
@@ -164,3 +164,105 @@ op: -
 Enter the strings with space between each: 
 aa bb cc dd
 [aa, bb, cc, dd]
+
+//3] Mutability of arrays in java
+
+package javatpoint;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Student{
+	/*mutable nature in java:- 
+	 * 1.Strings are immutable in java.
+	 * 2.But, Arrays are mutable in java.
+	 */
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		int[] num = {1,23,4,56};
+		System.out.println(Arrays.toString(num));
+		change(num);
+		System.out.println(Arrays.toString(num));
+	}
+	static void change(int[] arr) {
+		arr[0] = 99; 
+	}
+}
+
+output:-
+[1, 23, 4, 56]
+[99, 23, 4, 56]
+
+//2d arrays
+
+package javatpoint;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Student{
+	/* 2D arrays in java
+	 * 1. They are usually represented in a matrix type.
+	 * eg:-	1 2 3
+	 *      4 5 6
+	 *      7 8 9
+	 */
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+//		One way of representing a 2d array
+//		int[][] arr = new int[3][]; // You don't need to add column value
+
+//      System.out.println(arr.length); - will give the length of row, and not the column
+		
+//		another way of representing an 2d array
+//        int[][]	arr = {
+//        		{1,2,3}, //0th index
+//        		{4,5}, //1st index
+//        		{6,7,8,9}  //3rd index
+//        };
+		
+		int[][] arr = new int[3][3];
+        
+        //input
+		 System.out.println("Enter the elements to be in the matrix: ");
+		//for each rows
+        for(int row=0;row<arr.length;row++) {
+        //for each column
+        	for(int col=0;col<arr[row].length;col++) { //arr[row].length, is basically the size of the row
+        		arr[row][col] = input.nextInt();
+        	}
+        }
+        
+        //output
+        
+        //method 1: basic method
+//        for(int row=0 ; row<arr.length;row++) {
+//        	for(int col=0;col<arr[row].length;col++) {
+//        		System.out.print(arr[row][col]+" ");
+//        	}
+//        	System.out.println();
+//        }
+        
+        //method 2: Arrays.toString method
+//        for(int row=0;row<arr.length;row++) {
+//        	System.out.println(Arrays.toString(arr[row]));
+//        }
+        
+        //method 3: Enhanced for loop
+        for(int[] a: arr) { //every single element in the array is an array, so we use, int[] a=arr
+        	System.out.println(Arrays.toString(a));
+        }
+   }
+		
+}
+
+output:
+Enter the elements to be in the matrix: 
+1 2 3 45 6 7 89 0 9
+[1, 2, 3]
+[45, 6, 7]
+[89, 0, 9]
+
+
