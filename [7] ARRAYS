@@ -309,4 +309,71 @@ public class Student{
 		
 }
 
+// more ArrayList
+
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Student{
+	
+	/* Few things to know about arrayList
+	 * 1. Size of ArrayList is fixed internally.
+	 * 2. If ArrayList fills by some amount, then:-
+	 * 	  a. It will create a new arrayLisr of size double than the previous arrayList.(eg:- when we add elements (1,2,3) to an empty arrayList, and if we want to add more elements. It creates a new and bigger arrayList that can hold more number.(1,2,3,4,5).
+	 * 	  b. When that happens, old elements get copied to the new arrayList.
+	 */
+	
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		ArrayList<ArrayList<Integer>> list = new ArrayList<>();
+		
+		//initialize the size of array list
+		for(int i=0; i<3;i++) { //if we do not initialize the arrayList elements, we will get an error.
+			list.add(new ArrayList<>());
+		}
+		
+		//add elements to the array list
+		for(int i=0; i<3; i++) {
+			for(int j=0;j<3;j++) {
+				list.get(i).add(input.nextInt());//list.get(i), means get the list element at index i(0,1,2,etc).
+			}
+		}
+		
+		System.out.println(list);
+		
+	}
+		
+}
+
+//					excersise
+
+//1] program to swap values in an array
+
+sol]
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Student{
+	
+	public static void main(String[] args) {
+		
+		int[] arr = {1,2,3,4};
+		swap(arr,0,1);
+		
+		System.out.println(Arrays.toString(arr));
+	}
+	
+	static void swap(int[] arr,int index1, int index2 ) {
+		int temp = arr[index1];
+		arr[index1] = arr[index2];
+		arr[index2]= temp;
+	}
+		
+}
+
 
