@@ -3,7 +3,8 @@
 
 //SPL NOTE: In java primitives are stored in stack memory only, but all the other object types such as String type, Array type are stored in heap memory.
 
-//1] What is array, What are its components
+
+//1] 										What is array, What are its components
 
 package javatpoint;
 
@@ -48,7 +49,7 @@ public class Student{
 	}	
 }
 
-//2] what is NULL, basic input program using array.
+//2]												 what is NULL, basic input program using array.
 
 package javatpoint;
 
@@ -193,7 +194,7 @@ output:-
 [1, 23, 4, 56]
 [99, 23, 4, 56]
 
-//2d arrays
+//3]												2d arrays
 
 package javatpoint;
 
@@ -264,5 +265,48 @@ Enter the elements to be in the matrix:
 [1, 2, 3]
 [45, 6, 7]
 [89, 0, 9]
+
+//4]											Array List
+
+package javatpoint;
+
+import java.util.ArrayList;
+
+
+public class Student{
+	
+	/* Array List:-
+	 * If a programmer doesn't know the size of an array, then we use array list
+	 * 
+	 * Syntax:-
+	 * ArrayList<Integer>list = new ArrayList<>(number);//here number is the initial capacity.
+	 */
+	
+	public static void main(String[] args) {
+		
+		ArrayList<Integer> list = new ArrayList<>(5);
+		
+		//add elements in an empty array
+		list.add(56);
+		list.add(65);
+		list.add(76);
+		list.add(906);
+		list.add(589);
+		list.add(345);
+		
+		//to check if the element exists in the array(return true or false)
+		System.out.println(list.contains(56));
+		
+		//to update or change an element in the array
+		list.set(0, 99); //list.set(index position, new element to update);
+		
+		//To remove an element
+		list.remove(2); //removes the element in index 2, 76
+		
+		//print the elements of the array
+		System.out.println(list);
+   }
+		
+}
 
 
