@@ -1,2 +1,126 @@
 //                            Arrays Excersises
 
+//1] Take array input in java
+
+sol]
+
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		int[] arr = new int[5];
+		
+		System.out.println("Enter the elements  of the array: ");
+		for(int i=0; i<arr.length;i++) {
+			arr[i] = input.nextInt();
+		}
+		
+		for(int i=0;i<arr.length;i++) {
+			System.out.print(arr[i]+" ");
+		}
+		
+	}
+	
+}
+
+op:- 
+Enter the elements  of the array: 
+1 2 3 4 5 6 7 
+1 2 3 4 5 
+
+//2] Define an array, input elements and get the sum of elements in that array using a method for the sum part.
+
+sol]
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		int[] arr = new int[5];
+		
+		System.out.println("Enter the elements  of the array: ");
+		for(int i=0; i<arr.length;i++) {
+			arr[i] = input.nextInt();
+		}
+		
+		for(int i=0;i<arr.length;i++) {
+			System.out.print(arr[i]+" ");
+		}
+		System.out.println();
+		sumOfArrayElements(arr);
+	}
+	
+	static void sumOfArrayElements(int[] arr) {
+		int sum = 0;
+		for(int i =0;i<arr.length;i++) {
+			sum += arr[i];	
+		}
+		System.out.println("The sum of elements is: "+ sum);
+	}
+}
+
+op:- 
+Enter the elements  of the array: 
+1 2 3 4 5
+1 2 3 4 5 
+The sum of elements is: 15
+
+//3] return an array in java
+
+sol]
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		int[] arr = userDefinedArray();
+		
+		System.out.println("The new array is: ");
+		for(int i=0; i<arr.length;i++) {
+			System.out.print(arr[i]+" ");
+		}
+	}
+	
+	//method to create a user defined array
+	static int[] userDefinedArray() { //we have to give return type as an integer array(int[])
+		Scanner input = new Scanner(System.in);
+		int n=0;//number of elements in an array
+		int[] arr = null; //empty array
+		
+		//initialize size of array
+		System.out.println("Enter the size of array: ");
+		n = input.nextInt();
+		
+		//define the array of size n
+		arr = new int[n];
+		
+		System.out.println("Enter the elements of the array: ");
+		for(int i=0; i<arr.length;i++) {
+			arr[i] = input.nextInt();
+		}
+		
+		return arr;
+	}
+}
+
+op:-
+Enter the size of array: 
+3
+Enter the elements of the array: 
+12 13 167
+The new array is: 
+12 13 167 
+
+//4] 
