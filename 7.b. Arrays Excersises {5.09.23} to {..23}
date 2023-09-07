@@ -123,4 +123,49 @@ Enter the elements of the array:
 The new array is: 
 12 13 167 
 
-//4] 
+//4] Sum of the array elements
+
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		int sum = sumOfArray();
+		
+		System.out.println("The sum of arrat elements is: "+sum);
+	}
+	
+	static int sumOfArray() {
+		Scanner input = new Scanner(System.in);
+		int sum = 0;
+		int[] arr = null;
+		
+		System.out.println("Enter the size of array: ");
+		int size = input.nextInt();
+		
+		arr = new int[size];
+		System.out.println("Enter the elements of the array: ");
+		for(int i = 0; i<arr.length;i++) {
+			arr[i] = input.nextInt();
+		}
+		
+		for(int i = 0; i<arr.length;i++) {
+			sum+=arr[i];
+		}
+		return sum;
+	
+	}
+}
+
+op:- 
+Enter the size of array: 
+3
+Enter the elements of the array: 
+1
+2
+3
+The sum of arrat elements is: 6
+
