@@ -215,3 +215,151 @@ Enter the size of array:
 Enter the elements of the array: 
 10 20 30 40 50
 The average of array elements is: 30.0
+
+//6. Add 2 arrays
+
+sol] 
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		//initializing the size of the array
+		System.out.print("Enter the array1 size: ");
+		int array1Size = input.nextInt();
+		System.out.print("Enter the array2 size: ");
+		int array2Size = input.nextInt();
+		
+		//if condition to see if both the sizes are same or not
+		if(array1Size != array2Size) {
+			System.out.println("Both arrays must be of same size");
+			return; //ends the program if the condition is met
+		}
+		
+		//declaring 3 arrays with default sizes
+		//since  array sizes must be same, we can put both the sizes
+		int[] array1 = new int[array1Size]; 
+		int[] array2 = new int[array2Size];
+		int[] array3 = new int[array1Size];
+		
+		//inputing array1 values using for loop
+		System.out.println("Enter the elements for array1: ");
+		for(int i=0; i<array1.length;i++) {
+			array1[i] = input.nextInt();
+		}
+		
+		//inputing array1 values using for loop
+		System.out.println("Enter the elements for array2: ");
+		for(int i=0; i<array2.length;i++) {
+			array2[i] = input.nextInt();
+		}
+		
+		for(int i=0;i<array3.length;i++) {
+			array3[i] = array1[i]+array2[i];
+		}
+		
+		System.out.println("The resultant array is: ");
+		System.out.println(Arrays.toString(array3));
+	
+	}
+}
+
+op:-
+Enter the array1 size: 5
+Enter the array2 size: 5
+Enter the elements for array1: 
+10 20 30 40 50
+Enter the elements for array2: 
+9 18 27 36 45
+The resultant array is: 
+[19, 38, 57, 76, 95]
+
+//7. How to check if 2 arrays are equal or not.(also, Downside of using Arrays.equals() mentioned)
+
+sol]
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Student{
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter the array size for array1: ");
+		int arraySize1 = input.nextInt();
+		System.out.println("Enter the array size for array2: ");
+		int arraySize2 = input.nextInt();
+		
+		//creating empty arrays
+		int[] array1 = null;
+		int[] array2 =null;
+		
+		//filling values into array1
+		System.out.println("Enter the values for array1: ");
+		array1 = new int[arraySize1];
+		for(int i=0; i<array1.length;i++) {
+			array1[i] = input.nextInt();
+		}
+/* case1:-		
+*
+*		assigning array1's value to array2
+*		array2 = array1;
+*
+*  output:- returns true, as both the arrays are same.
+*/	
+
+// case2:-
+		//filling values into array2
+		System.out.println("Enter the values for array2: ");
+		array2 = new int[arraySize2];
+		for(int i=0; i<array2.length;i++) {
+			array2[i] = input.nextInt();
+		}
+		
+		System.out.println(Arrays.toString(array1));
+		System.out.println(Arrays.toString(array2));
+		
+//		tried using array1 == array2, didn't work!
+//		After using Arrays.equals(array1,array2), we get the results properly.
+//		But Arrays.equals wont work for multi-dimensional arrays.
+		
+		if(Arrays.equals(array1,array2)) {
+			System.out.println("Both the arrays are identical.");
+			return;
+		}
+		else {
+			System.out.println("both the arrays are different.");
+			return;
+		}
+
+	
+	}
+}
+
+
+op:-
+Enter the array size for array1: 
+3
+Enter the array size for array2: 
+3
+Enter the values for array1: 
+11
+12
+13
+Enter the values for array2: 
+11
+121
+123
+[11, 12, 13]
+[11, 121, 123]
+both the arrays are different.
+
+//8. 
+
