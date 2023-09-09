@@ -361,5 +361,33 @@ Enter the values for array2:
 [11, 121, 123]
 both the arrays are different.
 
-//8. 
+//8. How to copy arrays in java
+
+sol:-
+
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+//Methods to copy an array
+
+public class Student{
+	public static void main(String[] args) {
+//		Method 1:- Shallow copy method:- means copying an array using '=' operator
+//		int[] arr1 = {1,2,3,4,5};
+//		int[] copyArr = arr1;
+//		System.out.println("original:- "+Arrays.toString(arr1));
+//		System.out.println("copy:- "+Arrays.toString(copyArr));
+//		
+//		op:-
+//		original:- [1, 2, 3, 4, 5]
+//		copy:- [1, 2, 3, 4, 5]
+	
+//Limitation:- if we change original array, copy will also change
+
+
+}
+}
 
