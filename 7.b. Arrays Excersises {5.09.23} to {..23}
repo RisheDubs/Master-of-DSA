@@ -365,29 +365,192 @@ both the arrays are different.
 
 sol:-
 
+//Method 1:- Shallow copy method:- means copying an array using '=' operator
+//Limitation:- if we change original array, copy will also change
+
 package javatpoint;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-//Methods to copy an array
+public class Student{
+	public static void main(String[] args) {
+
+		int[] arr1 = {1,2,3,4,5};
+		int[] copyArr = arr1;
+		System.out.println("original:- "+Arrays.toString(arr1));
+		System.out.println("copy:- "+Arrays.toString(copyArr));
+		
+}
+}
+
+op:-
+original:- [1, 2, 3, 4, 5]
+copy:- [1, 2, 3, 4, 5]
+
+ 
+/* Method 2: Deep copy of array
+*  In this method we basically create a new array of same data type and length as our original array. 
+*  Then we use for loop to iterate through the original array. Then we copy the original array elements 
+*  to our new array elements.
+*  
+*  The benefit of this method is that, even if we change the original array elements the new array 
+*  elements won't change.
+*/
+
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
 
 public class Student{
 	public static void main(String[] args) {
-//		Method 1:- Shallow copy method:- means copying an array using '=' operator
-//		int[] arr1 = {1,2,3,4,5};
-//		int[] copyArr = arr1;
-//		System.out.println("original:- "+Arrays.toString(arr1));
-//		System.out.println("copy:- "+Arrays.toString(copyArr));
-//		
-//		op:-
-//		original:- [1, 2, 3, 4, 5]
-//		copy:- [1, 2, 3, 4, 5]
+		
+		
+		int[] arr = {1,2,3,4,5};
+		int[] tempArr = new int[arr.length]; //temp array to store original array values
+		
+		for(int i =0; i<arr.length;i++) {
+			tempArr[i] = arr[i];
+		}
+		
+		System.out.println("Arrays before changing elements: ");
+		System.out.println("first Array elements: "+Arrays.toString(arr));
+		System.out.println("new array elements: "+Arrays.toString(tempArr));
+
+		//changing elements of original array
+		arr[0] = 34;
+		arr[3] = 67;
+		
+		System.out.println("Arrays after changing elements: ");
+		System.out.println("first Array elements: "+Arrays.toString(arr));
+		System.out.println("new array elements: "+Arrays.toString(tempArr));
+		
+	}
+}
+
+op:-
+Arrays before changing elements: 
+first Array elements: [1, 2, 3, 4, 5]
+new array elements: [1, 2, 3, 4, 5]
+Arrays after changing elements: 
+first Array elements: [34, 2, 3, 67, 5]
+new array elements: [1, 2, 3, 4, 5]
+
+//method 3:- System.arraycopy() method
+/*System.arraycopy() method:- It copies an array from the specified source array, beginning at the 
+	 *	specified position, to the specified position of the destination array.
+	 *Syntax:- 
+	 *	System.arrayCopy(object src, int srcPos, Object dest, int destPos, int length);
+	 *here,
+	 	* 	src:- source array
+	 	* 	srcPos:- Starting position in destination array
+	 	* 	dest:- the destination array.
+	 	* 	destPos:- starting position in destination array
+	 	* 	length:- length of the array elements to be copied 	
+*/
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class Student{
+	public static void main(String[] args) {
 	
-//Limitation:- if we change original array, copy will also change
+	int[] arr = {1,2,3,4,5};
+	
+	int[] newArr = new int[arr.length];
+	
+	System.arraycopy(arr, 0, newArr, 0, arr.length);
+	
+	System.out.println(Arrays.toString(arr));
+	System.out.println(Arrays.toString(newArr));
+	}
+}
+
+op:- 
+[1, 2, 3, 4, 5]
+[1, 2, 3, 4, 5]
+
+//9. merge to arrays in java
+
+sol]
+//normal method
+
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
 
 
+public class Student{
+	public static void main(String[] args) {
+	
+	int[] arr1 = {1,2,3,4,5};
+	int[] arr2 = {6,7,8,9,10};
+	
+	int[] mergeArray = new int[arr1.length+arr2.length];
+ 	
+	for(int i=0; i<arr1.length;i++) {
+		mergeArray[i] = arr1[i];
+	}
+	
+	//here i is for traversing the arr2 elements
+	//here j is for traversing the merge array elements
+	for(int i=0,j=arr1.length;j<(arr1.length+arr2.length);j++,i++) {
+		mergeArray[j] = arr2[i]; 
+	}
+	
+	System.out.println("array 1 elements:-"+Arrays.toString(arr1));
+	System.out.println("array 2 elements:-"+Arrays.toString(arr2));
+	System.out.println("merged array elements:-"+Arrays.toString(mergeArray));
+	
+	}
 }
+
+op:-
+array 1 elements:-[1, 2, 3, 4, 5]
+array 2 elements:-[6, 7, 8, 9, 10]
+merged array elements:-[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+// using System.arraycopy method
+
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class Student{
+	public static void main(String[] args) {
+	
+	String[] arr1 = {"hava","kava","thava"};
+	String[] arr2 = {"pova","sova"};
+	
+	String[] newArr = new String[arr1.length+arr2.length];
+	
+	System.arraycopy(arr1, 0, newArr, 0, arr1.length);
+	
+	System.arraycopy(arr2, 0, newArr, arr1.length, arr2.length);
+	
+	System.out.println("array 1 elements:- "+Arrays.toString(arr1));
+	System.out.println("array 2 elements:- "+Arrays.toString(arr2));
+	System.out.println("merged array elements:- "+Arrays.toString(newArr));
+	
+	}
 }
+
+op:-
+array 1 elements:- [hava, kava, thava]
+array 2 elements:- [pova, sova]
+merged array elements:- [hava, kava, thava, pova, sova]
+
+
 
