@@ -552,5 +552,58 @@ array 1 elements:- [hava, kava, thava]
 array 2 elements:- [pova, sova]
 merged array elements:- [hava, kava, thava, pova, sova]
 
+//10. program to sort 2 merged array
+
+sol] //using predefined method
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class Student{
+	public static void main(String[] args) {
+	Scanner input = new Scanner(System.in);
+	int[] arr1 = new int[5];
+	int[] arr2 = new int[5];
+	
+	System.out.print("Enter elements for arr1: ");
+	for(int i=0; i<arr1.length;i++) {
+		arr1[i] = input.nextInt();
+	}
+	
+	System.out.print("Enter elements for arr2: ");
+	for(int i=0; i<arr1.length;i++) {
+		arr2[i] = input.nextInt();
+	}
+	
+	//2 user defined arrays of length 5 are ready
+	System.out.println("arr1 elements= "+Arrays.toString(arr1));
+	System.out.println("arr2 elements= "+Arrays.toString(arr2));
+	
+	//program to merge sort 2 arrays
+	//new array to store two arrays
+	int[] mergesortArray = new int[arr1.length+arr2.length];
+	
+	//copying arr1 elements to mergesortArray
+	System.arraycopy(arr1,0,mergesortArray,0,arr1.length);
+	//copying arr2 elements to mergesortArray
+	System.arraycopy(arr2, 0,mergesortArray, arr1.length,arr2.length);
+	
+	//we use an inbuilt method to merge and sort to arrays
+	Arrays.sort(mergesortArray);
+	
+	System.out.println("elements after merging and sorting:- "+Arrays.toString(mergesortArray));
+	
+	}
+}
+
+op:-
+Enter elements for arr1: 34 22 56 12 78
+Enter elements for arr2: 45 678 890 345 67
+arr1 elements= [34, 22, 56, 12, 78]
+arr2 elements= [45, 678, 890, 345, 67]
+elements after merging and sorting:- [12, 22, 34, 45, 56, 67, 78, 345, 678, 890]
 
 
