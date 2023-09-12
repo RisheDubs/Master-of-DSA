@@ -606,4 +606,147 @@ arr1 elements= [34, 22, 56, 12, 78]
 arr2 elements= [45, 678, 890, 345, 67]
 elements after merging and sorting:- [12, 22, 34, 45, 56, 67, 78, 345, 678, 890]
 
+//11. To find the largest element in the array
+
+sol]
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class Student{
+	public static void main(String[] args) {
+		
+		 //give a predefined array
+		int[] arr = {-100,34,5,6,-90};
+		
+		//assume arr[0] is the largest
+		int max = arr[0]; 
+		
+		//iterate through every element in the array
+		for(int i=0;i<arr.length;i++) {
+			//check if max is greater than all other elements in the array
+			if(max<arr[i]) {
+				//if not then the max is updated to new element in the array
+				max = arr[i];
+			}
+		}
+		
+		System.out.println("The largest elements in the array is: "+max);
+	}	
+}
+
+op:-
+The largest elements in the array is: 34
+
+// to find largest element in a user deifned array
+
+sol]
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class Student{
+	public static void main(String[] args) {
+	
+	int[] array = userArray();
+	System.out.println("The array elements are: "+Arrays.toString(array));
+	//program to find the maximum in array
+	int max = array[0];
+	
+	for(int i=0; i<array.length;i++) {
+		if(max<array[i]) {
+			max = array[i];
+		}
+	}
+	
+	System.out.print("The largest element in the array is: "+max);
+	}
+	
+	static int[] userArray() {
+		Scanner input = new Scanner(System.in);
+		
+		//enter the size of array
+		System.out.print("Enter the size of array: ");
+		int size = input.nextInt();
+		
+		int[] usearr = new int[size];
+		
+		//ask for elements to add in the array by user
+		System.out.println("Enter the elements of the array: ");
+		for(int i=0; i<usearr.length;i++) {
+			usearr[i] = input.nextInt();
+		}
+		
+		return usearr;
+	}
+}
+
+op:-
+Enter the size of array: 5
+Enter the elements of the array: 
+90 67 -22 189 4
+The array elements are: [90, 67, -22, 189, 4]
+The largest element in the array is: 189
+
+//12. FInd the minimum element in the array
+
+sol]
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class Student{
+	public static void main(String[] args) {
+	
+	int[] array = userArray();
+	System.out.println("The array elements are: "+Arrays.toString(array));
+	//program to find the minimum in array
+	int min = array[0];
+	
+	for(int i=0; i<array.length;i++) {
+		if(min>array[i]) {
+			min = array[i];
+		}
+	}
+	
+	System.out.print("The smallest element in the array is: "+min);
+	}
+	
+	static int[] userArray() {
+		Scanner input = new Scanner(System.in);
+		
+		//enter the size of array
+		System.out.print("Enter the size of array: ");
+		int size = input.nextInt();
+		
+		int[] usearr = new int[size];
+		
+		//ask for elements to add in the array by user
+		System.out.println("Enter the elements of the array: ");
+		for(int i=0; i<usearr.length;i++) {
+			usearr[i] = input.nextInt();
+		}
+		
+		return usearr;
+	}
+}
+
+op:- 
+Enter the size of array: 5
+Enter the elements of the array: 
+-1 -23 98 76 -100
+The array elements are: [-1, -23, 98, 76, -100]
+The samllest element in the array is: -100
+
+//13. 
+
 
