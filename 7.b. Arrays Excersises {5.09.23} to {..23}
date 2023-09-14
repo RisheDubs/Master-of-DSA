@@ -747,6 +747,78 @@ Enter the elements of the array:
 The array elements are: [-1, -23, 98, 76, -100]
 The samllest element in the array is: -100
 
-//13. 
+//13. seconf=d largest in array
+
+sol]
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class Student{
+	public static void main(String[] args) {
+	
+		Scanner input = new Scanner(System.in);
+		
+		int n = 0;
+		int[] arr = null;
+		
+		System.out.println("Enter the array size: ");
+		n = input.nextInt();
+		
+		arr = new int[n];
+		System.out.println("Enter the array elements: ");
+		for(int i=0; i<arr.length;i++) {
+			arr[i] = input.nextInt();
+		}
+		
+		System.out.println("The second largest in the array is: "+secondLargest(arr));
+			
+	}
+	
+	static int secondLargest(int[] arr) {
+		
+		//declare variables
+		int fmax = 0;
+		int smax = 0;
+		
+		//declare first element
+		fmax = arr[0];
+		smax = arr[0];
+		
+		/*draw back:- if i try to give an array of length 5 with elements
+					98 34 7 6 38, it does'nt work and return smax value as 98 only
+					because of the else if loop, maybe we should give additional rules
+					And also duplicate elements wont work, so we need to add
+					another rule to overcome this predicament.
+		*/
+		for(int i=1;i<arr.length;i++) {
+			if(fmax<arr[i]) {
+				smax = fmax;
+				fmax = arr[i];
+			}else if(smax<arr[i]){
+				smax = arr[i];
+			}
+		}
+		return smax;
+	}
+}
+
+
+
+op:- 
+Enter the array size: 
+5
+Enter the array elements: 
+-10
+2
+3
+4
+5
+The second largest in the array is: 4
+
+//14. 
 
 
