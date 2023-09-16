@@ -747,7 +747,7 @@ Enter the elements of the array:
 The array elements are: [-1, -23, 98, 76, -100]
 The samllest element in the array is: -100
 
-//13. seconf=d largest in array
+//13. second largest in array
 
 sol]
 package javatpoint;
@@ -819,6 +819,6 @@ Enter the array elements:
 5
 The second largest in the array is: 4
 
-//14. 
+//14. how to sort an array in java
 
-
+sol]
