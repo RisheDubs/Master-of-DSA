@@ -822,3 +822,67 @@ The second largest in the array is: 4
 //14. how to sort an array in java
 
 sol]
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class Student{
+	public static void main(String[] args) {
+		//inbuilt method to sort
+		int[] arr = {12,13,14,5,6};
+		System.out.println("Arrays befor sort:"+Arrays.toString(arr));
+		Arrays.sort(arr);
+		System.out.println("Arrays after sort: "+Arrays.toString(arr));
+	}
+	
+}
+
+op:-
+Arrays befor sort:[12, 13, 14, 5, 6]
+Arrays after sort: [5, 6, 12, 13, 14]
+
+//manual sorting using 2 loops
+
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class Student{
+	public static void main(String[] args) {
+		
+		int[] arr = {12,13,14,5,6};
+		int temp = 0;
+		System.out.println("Arrays before3 sort:"+Arrays.toString(arr));
+		for(int i=0;i<arr.length;i++) {
+			for(int j=i+1;j<arr.length;j++) {
+			if(arr[i]>arr[j]) {
+				temp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = temp;
+			}
+			}
+		}
+		System.out.println("Arrays after sort: "+Arrays.toString(arr));
+	}
+	
+}
+/*internal working from loops
+ * start - 1st loop - [12,13,14,5,6]
+ * 12>13[F} 12>14[F] 12>5[T] - [5,13,14,12,6] - 12>6[T] - [5,13,14,6,12] - loop end
+ * 2nd loop - [5,13,14,6,12]
+ * 13>14[F] 13>6[T] - [5,6,14,13,12] - 13>12[T] - [5,6,14,12,13] - loop end
+ * 3rd loop - [5,6,14,12,13]
+ * 14>12[T] - [5,6,12,14,13] - 14>13[T] -[5,6,12,13,14] - loop end - end 
+ */
+
+
+op:-
+Arrays before sort:[12, 13, 14, 5, 6]
+Arrays after sort: [5, 6, 12, 13, 14]
+
