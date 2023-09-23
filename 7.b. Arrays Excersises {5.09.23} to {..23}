@@ -881,8 +881,81 @@ public class Student{
  * 14>12[T] - [5,6,12,14,13] - 14>13[T] -[5,6,12,13,14] - loop end - end 
  */
 
-
 op:-
 Arrays before sort:[12, 13, 14, 5, 6]
 Arrays after sort: [5, 6, 12, 13, 14]
+
+//15] reverse an array in java
+
+sol] //using while loop
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class Student{
+	public static void main(String[] args) {
+		
+	int[] realArr = {1,23,45,67,8};
+	System.out.println("original array:- "+Arrays.toString(reverseArr));
+	int length = realArr.length;
+	int[] reverseArr = new int[length];
+	
+	int i=0;
+	int j = length-1;
+	
+	while(i<length) {
+		reverseArr[j] = realArr[i];
+		i++;
+		j--;
+	}
+	
+	System.out.println("reverse array:- "+Arrays.toString(reverseArr));
+
+	}
+	
+}
+
+op:-
+original array:- [1, 23, 45, 67, 8]
+reverse array:- [8, 67, 45, 23, 1]
+
+//using for loop
+
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class Student{
+	public static void main(String[] args) {
+		
+	int[] realArr = {1,23,45,67,8};
+	System.out.println("original array:- "+Arrays.toString(realArr));
+	int length = realArr.length;
+	int[] reverseArr = new int[length];
+	int i;
+	int j;
+	for(i=0,j=length-1;i<length;i++,j--) {
+		reverseArr[j] = realArr[i];
+	}
+	
+	System.out.println("original array:- "+Arrays.toString(reverseArr));
+	}
+	
+}
+
+
+op:-
+original array:- [1, 23, 45, 67, 8]
+reverse array:- [8, 67, 45, 23, 1]
+
+
+
+
+
 
