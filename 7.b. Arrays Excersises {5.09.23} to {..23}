@@ -935,7 +935,7 @@ public class Student{
 	public static void main(String[] args) {
 		
 	int[] realArr = {1,23,45,67,8};
-	System.out.println("original array:- "+Arrays.toString(realArr));
+	System.out.println("original array:- "+ Arrays.toString(realArr));
 	int length = realArr.length;
 	int[] reverseArr = new int[length];
 	int i;
@@ -955,7 +955,70 @@ original array:- [1, 23, 45, 67, 8]
 reverse array:- [8, 67, 45, 23, 1]
 
 
+//16] GCD of 2 numbers of array using recursion
+
+sol]
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
 
 
+public class Student{
+	public static void main(String[] args) {
+	
+	//initializing the elements
+	int size = 0;
+	int[] arr = null;
+	int result = 0;
+	
+	Scanner input = new Scanner(System.in);
+	
+	//take size input from user
+	System.out.println("Enter the size of the array: ");
+	size = input.nextInt();
+	
+	//initialize the new array with the new size
+	arr = new int[size];
+	
+	//input elements of the array
+	System.out.println("Enter the elements of the array: ");
+	for(int i=0;i<arr.length;i++) {
+		arr[i] = input.nextInt();
+	}
+	
+	//initialize the result as first element of the array
+	result = arr[0];
+	
+	for(int i=0;i<arr.length;i++) {
+		result = gcd(result,arr[i]);
+	}
+	
+	System.out.println("The GCD is :"+result);
+
+	}	
+	
+	//recursion method
+	static int gcd(int num1, int num2) {
+		while(num1 != num2) {
+			if(num1>num2) {
+				num1 = num1-num2;
+			}if(num2>num1) {
+				num2 = num2- num1;
+			}
+		}
+		return num1;
+	}
+}
+
+
+
+op:-
+Enter the size of the array: 
+3
+Enter the elements of the array: 
+10 15 25
+The GCD is :5
 
 
