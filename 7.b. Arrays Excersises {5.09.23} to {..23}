@@ -167,7 +167,7 @@ Enter the elements of the array:
 1
 2
 3
-The sum of arrat elements is: 6
+The sum of array elements is: 6
 
 //5] Average of array elements
 
@@ -874,7 +874,7 @@ public class Student{
 }
 /*internal working from loops
  * start - 1st loop - [12,13,14,5,6]
- * 12>13[F} 12>14[F] 12>5[T] - [5,13,14,12,6] - 12>6[T] - [5,13,14,6,12] - loop end
+ * 12>13[F] 12>14[F] 12>5[T] - [5,13,14,12,6] - 12>6[T] - [5,13,14,6,12] - loop end
  * 2nd loop - [5,13,14,6,12]
  * 13>14[F] 13>6[T] - [5,6,14,13,12] - 13>12[T] - [5,6,14,12,13] - loop end
  * 3rd loop - [5,6,14,12,13]
