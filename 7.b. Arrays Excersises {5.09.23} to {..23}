@@ -1112,4 +1112,66 @@ Input the element to find in the array:
 2
 2 exists in the index: 1
 
+//18] binary search in java
+//in binary search, we take the array, find the mid value, check if mid value is equal to the
+key value. if it is equal return 1, else, find the lowest to mid value and compare the key, if
+true then return 1, else, compare mid to highest and if it gives the key element then return 1,
+if no value is right retun -1.
+
+sol]
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class Student{
+	public static void main(String[] args) {
+	Scanner input = new Scanner(System.in);
+	//for binary search, we need to have an sorted array in ascending order
+	//the array
+	int[] arr = {10,20,30,40,50,60,70,80,90,100};
+	
+	System.out.println("Enter the key to check if it exists");
+	int key = input.nextInt(); //the value to find
+	
+	//index in which the value lies
+	int index = binarySearch(arr,0,arr.length-1,key);
+	
+	if(index == -1) {
+		System.out.println(key+" does not exist");
+	}else {
+		System.out.println(key+" exists");
+	}
+	
+	}
+	
+	static int binarySearch(int[] arr,int low,int high,int key) {
+		if (high>=low) {
+			
+			//find mid index value of the array
+			int mid = low+(high-low)/2; //to find mid value
+			
+			//check if mid value equals the key
+			if(arr[mid]==key) {
+				return mid;
+			}
+			
+			//check if the mid element is smaller than key
+			if(arr[mid]>key) {
+				return binarySearch(arr,low,mid-1,key);
+			}else {
+				return binarySearch(arr,mid+1,high,key);
+			}
+		}
+		return -1;
+	}
+}
+
+op:-
+
+Enter the key to check if it exists
+90
+90 exists
 
