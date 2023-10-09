@@ -1178,4 +1178,44 @@ Enter the key to check if it exists
 //19] Remove Duplicates From Array in Java
 
 sol] 
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class Student{
+	public static void main(String[] args) {
+		int[] arr = {10,10,20,30,30,40,50,50};
+		int[] dupeArr = duplicateRemover(arr);
+		
+		System.out.println("Original array: "+Arrays.toString(arr));
+		System.out.println("no duplicate array: "+Arrays.toString(dupeArr));
+			
+	}
+	static int[] duplicateRemover(int[] arr) {
+		int j=0; //index without duplicates
+		int lastIndex = arr.length-1;
+		
+		for(int i=0;i<lastIndex;i++) {
+			if(arr[i] != arr[i+1]) {
+				arr[j++] = arr[i];
+			}
+		}
+		
+		if(arr[j] != arr[lastIndex]) {
+			arr[j++] = arr[lastIndex];
+		}
+		
+		return Arrays.copyOf(arr,j);
+	}
+
+}
+
+op:-
+Original array: [10, 20, 30, 40, 50, 40, 50, 50]
+no duplicate array: [10, 20, 30, 40, 50]
+
+//20] 
 
