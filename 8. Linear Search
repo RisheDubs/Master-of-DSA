@@ -38,8 +38,8 @@ public class Student{
 		//traverse the elements in the loop
 		//if element exists return the element
 		for(int i=0;i<arr.length;i++) {
-			int element = arr[i];
-			if(element == target) {
+			int element = arr[i]; //assume first value in array as answer 
+			if(element == target) { //then check for the value you are searching
 				return element;
 			}
 		}
@@ -51,6 +51,65 @@ public class Student{
 
 op:-
 
-12 //meaning it exists
+12  //meaning it exists
+
+Q1] linear search a chracter in a given string.
+
+sol]
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class Student{
+	public static void main(String[] args) {
+		String name = "Rishe";
+		char searchString = 'o';
+		boolean charExist = stringSearch(name,searchString);
+		System.out.println(charExist);
+	}
+	//for loop
+	static boolean stringSearch(String name, char target) {
+		if(name.length() == 0 ) {
+			return false;
+		}
+		
+		for(int i=0; i<name.length();i++) {
+			if(target == name.charAt(i)) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	//for each loop
+	static boolean stringSearch2(String name, char target) {
+		if(name.length() == 0 ) {
+			return false;
+		}
+		
+		/*to use a for each loop we need to have 
+		*a collection or array. since we dont have
+		*either of them, we use toCharArray() to
+		*convert the string into a array of characters
+		*/
+		for(char ch:name.toCharArray()) { // name = ['r','i','s','h','e'];
+			if(ch == target) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	
+}
+
+output:-
+
+False
 
  
