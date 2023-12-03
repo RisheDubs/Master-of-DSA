@@ -108,8 +108,88 @@ public class Student{
 	
 }
 
-output:-
+output:- 
 
 False
 
- 
+Q2] find if element exists within a particular range.
+
+sol] 
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class Student{
+	public static void main(String[] args) {
+		int[] arr = {1,2,3,4,5,6};
+		int target = 5;
+		int ans = searchInRange(arr,target,1,4);
+		if(ans == 1)
+			System.out.println("it exists in array ");
+		if(ans == -1)
+			System.out.println("it does not exist in array ");
+
+	}
+	
+	static int searchInRange(int[] arr, int target, int start, int end) {
+		if(arr.length==0) {
+			return -1;
+		}
+		
+		for(int i=start;i<= end;i++) {
+			int value=arr[i];
+			if(value == target) {
+				return 1;
+			}
+		}
+		return -1;
+	}
+	
+}
+
+output:-
+
+it exists in array 
+
+Q3] to find the minimum value in an array
+
+sol] 
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class Student{
+	public static void main(String[] args) {
+		int[] arr = {12,23,3,-4,58,6};
+		int ans = minValue(arr);
+		System.out.println(ans);
+		
+	}
+	
+	static int minValue(int[] arr) {
+		int minVal = arr[0]; 
+		for(int i=1;i<arr.length;i++) {
+			
+			if(arr[i]<minVal) {
+				minVal = arr[i];
+				
+			}
+		}
+		
+		return minVal;
+	}
+	
+	
+}
+
+ouput:-
+
+-4
+
+Q4] 
