@@ -192,4 +192,88 @@ ouput:-
 
 -4
 
-Q4] 
+Q4] to search an element in 2d array and return its index value
+
+sol]
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class Student{
+	public static void main(String[] args) {
+		int[][] arr = {
+				{12,23,45,56},
+				{3,47,89},
+				{90,4,25,83},
+				{10,77}
+			};
+		
+		int target = 77;
+		int[] ans = twoDSearch(arr,target); 
+		System.out.println(Arrays.toString(ans));	
+	}
+	
+	static int[] twoDSearch(int[][] arr,int target) {
+		for(int row = 0;row<arr.length;row++) {
+			for(int col=0; col<arr[row].length;col++) {
+				if(arr[row][col] == target) {
+					return new int[]{row,col};
+				}
+			}
+		}
+		return new int[] {-1,-1};
+	}
+	
+	
+	
+}
+
+op:-
+[3,1] //target-77
+
+Q5] find the maximum in 2d array and return the index value
+
+sol] 
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class Student{
+	public static void main(String[] args) {
+		int[][] arr = {
+				{12,23,45,56},
+				{3,47,89},
+				{90,400,25,83},
+				{10,770}
+			};
+		
+		int ans = maximumTwoD(arr);
+		System.out.println(ans);
+	}
+	
+	static int maximumTwoD(int[][] arr) {
+		int max = arr[0][0];   //can also use :- Integer.MIN_VALUE, Whose value is -2147483648
+		for(int row=0; row<arr.length;row++) {
+			for(int col=0;col<arr[row].length;col++) {
+				if(arr[row][col]>max) {
+					max = arr[row][col];
+				}
+			}
+		}
+		return max;
+	}
+	
+	
+	
+}
+
+op:-
+770
+
+Q6] 
