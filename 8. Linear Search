@@ -344,3 +344,52 @@ public class Student{
 op:-
 
 2 
+
+Q7] Rischest Customer wealth: basically means that, out of the given 3 account holders with their 
+money(in their respective rows). Find the one who holds the most money and return the value.
+
+sol:-
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class Student{
+	public static void main(String[] args) {
+		int[][] accounts = {
+							{1,5},
+							{1,6},
+							{2,8}
+						   }; 
+		int ans = maximumWealth(accounts);
+		System.out.println("The highest money is: "+ans);
+	}
+	
+	static int maximumWealth(int[][] accounts) {
+		/*here, 
+		*arr = accounts 
+		*row = persons
+		*col = account
+		*/
+		int ans = Integer.MIN_VALUE; //used for comparing each row sum.
+		for(int persons=0;persons<accounts.length;persons++) {
+			//each time row sum is reset to 0, when checking a new row
+			int sum = 0;
+			for(int account=0;account<accounts[persons].length;account++) {
+				sum += accounts[persons][account];
+			}
+			if(sum>ans) {
+				ans = sum;
+			}
+		}
+		
+		return ans;
+	}
+	
+	
+}
+
+op:-
+The highest money is: 10
