@@ -1,1 +1,18 @@
 
+/* Binary Search
+*
+* What is binary search?
+*   A searching algorithm used only on sorted arrays. It states that:- (1) Find the middle element in the 
+* sorted array, (2) if target element is less than the middle element, search in the left side. Else,
+* search in the right hand side of the array.(3) If middle element is the target element, then that 
+* concludes the search.[NOTE:- Step 2 may be repeated, and Step 3 will be checked each time that happens]
+* if Start becomes greater than end - Element not found
+*
+*
+* Why do we use Binary Search?
+    - The best case for a binary search is, finding the element being searched for in first search, which 
+    is the middle element. O(1) - Best case for Binary Search 
+    - The worst case for binary search is when comparison is either not found, or is found at the last 
+    search. {log[base 2]N} ie., O(logN) - worst case for Binary Search
+* Hence, if we have to make 1,000,000 comparisons, with lenear search we will have to search 1 million
+* times, but when it comes to Binary Search, It only takes 20 Comparisons.
