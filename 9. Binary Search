@@ -16,3 +16,53 @@
     search. {log[base 2]N} ie., O(logN) - worst case for Binary Search
 * Hence, if we have to make 1,000,000 comparisons, with lenear search we will have to search 1 million
 * times, but when it comes to Binary Search, It only takes 20 Comparisons.
+
+// Binary search implementation through code
+
+sol] 
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class Student{
+	public static void main(String[] args) {
+		int[] arr = {-23,-12,-4,0,23,45,67,89,100};
+		int target = -23;
+		int ans = binarySearch(arr,target);
+		System.out.println(ans);
+	}
+	
+	static int binarySearch(int[] arr,int target) {
+		
+		int start = 0;
+		int end = arr.length-1;
+		
+		while(start <= end) {
+		//	To find middle element
+		//	int mid = (start+end)/2 // might be possible that(start+end) exceed the range of integer in java  
+		//  So we use,
+			int middle = start+(end-start)/2;
+			
+			if(target < arr[middle]) {
+				end = middle - 1;
+			}else if(target > arr[middle]) {
+				start = middle + 1;
+			}else {
+				//answer found as the middle value
+				return middle;
+			}
+		}
+		//if none of the return have worked, then.
+		return -1;//if target not found
+	}
+	
+	
+}
+
+op:-
+
+0
+
