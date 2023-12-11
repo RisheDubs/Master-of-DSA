@@ -1,0 +1,41 @@
+Arrays
+
+1] 
+
+sol]
+/*
+* Intuition
+* We want to construct a new array 'ans' using the given 'nums' array such that
+* ans[i] = nums[nums[i]] for all valid indices i.
+* Approach
+* 1. Initialize an empty array 'ans' with the same length as 'nums'.
+* 2. Iterate through 'nums' from index 0 to the length of 'nums'.
+* 3. For each index i, set ans[i] to nums[nums[i]].
+* 4. Return the 'ans' array as the result.
+* Complexity
+* Time complexity:O(n)
+*
+* Space complexity:O(n)
+*/
+// Code
+class Solution {
+    public int[] buildArray(int[] nums) {
+        int[] ans = new int[nums.length];
+        
+        for (int i = 0; i < nums.length; i++) {
+            ans[i] = nums[nums[i]];
+        }
+        
+        return ans;
+    }
+
+    public static void main(String[] args) {
+        Solution sc = new Solution();
+        int[] nums = {0, 2, 1, 5, 3, 4};
+        int[] result = sc.buildArray(nums);
+        
+        for (int num : result) {
+            System.out.print(num + " ");
+        }
+    }
+}
