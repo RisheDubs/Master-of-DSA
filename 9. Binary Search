@@ -199,3 +199,12 @@ op:-
 
 4
 
+********
+
+SO,When do we use/need binary search?
+
+:- If a question is present with sorted array, then we use binary search. BUT IT IS NOT THE SOLUTION FOR 100% OF 
+   THE TIME!!!
+
+
+
