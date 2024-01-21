@@ -206,5 +206,53 @@ SO,When do we use/need binary search?
 :- If a question is present with sorted array, then we use binary search. BUT IT IS NOT THE SOLUTION FOR 100% OF 
    THE TIME!!!
 
+Floor and Ceiling of a number using BS
+--------------------------------------
 
+//Ceiling of a given number, using BS
+	
+//Ceiling of a given number is nothing but, the Smallest element of the array is greater than or equal to target element.
+	
+/* lets assume a sorted array,
+ * 
+ * arr = [2,3,4,5,9,14,16];
+ * {Tip: If you see a sorted array, use BS. If the result is not found, try  another method}
+ * 
+ * //if,
+ * target = 14; //case 1
+ * //Then, ceiling is going to be 14. Since it is greater or equal to 14.
+ * 
+ * //if,
+ * target = 15, //case 2
+ * //As we can notice, the target element 15 does not exist in the array, so we check for the greatest element in the array, 
+ *   which is 16. hence, the ceiling is 16.
+ * 
+ * //So,
+ * in order to find the ceiling of a number in a SORTED array we have 3 steps
+ * 1] check if target element exists in array[like case 1]
+ * 2] if not, then find all the elements that are greater than or equal to the target element [like case 2] 
+ * 3] Which is the smallest number from the second step?, hence the result!!
+ * 
+*/
+		
+//Floor of a given number, using BS
+//Floor of a number is basically greatest element of the array smaller than or equal to target number.
+	
+/*
+	 * Assume a sorted array
+	 * 
+	 * arr = [2,3,4,5,9,14,16];
+	 * target = 14;
+	 * 
+	 * steps to find floor of a number is:-
+	 * same as above(ceiling of number), but return end instead of -1, if target not found.  
+	 * 
+	 * when condition is VIOLATED, start(s)=end(e)+1; where, s>e;
+	*/
+		
+	/*
+	 *  So basically this concludes to 2 results:-
+	 *  1] If you want to find the end You return floor.
+	 *  2] If you want to find the start You return ceiling.
+	*/
 
