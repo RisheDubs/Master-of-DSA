@@ -822,11 +822,7 @@ import java.util.Scanner;
 public class Student{
 	public static void main(String[] args) {
 	
-	// 33. Search in Rotated Sorted Array
-	// asked in google and amazon
 	
-	
-		
 	int[] arr = {2,2,1,1,2,0,1,2};
 	//int target = 6; 
 	int ans = findPivot(arr);
