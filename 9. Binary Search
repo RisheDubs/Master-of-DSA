@@ -809,8 +809,128 @@ op:-
 
 2
 
-7] 
+7] Rotated binary search with duplicate elements
 
 sol]
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class Student{
+	public static void main(String[] args) {
+	
+	// 33. Search in Rotated Sorted Array
+	// asked in google and amazon
+	
+	
+		
+	int[] arr = {2,2,1,1,2,0,1,2};
+	//int target = 6; 
+	int ans = findPivot(arr);
+	System.out.println(ans);
+	  	
+	}
+	
+	static int search(int[] nums,int target) {
+		int pivot = findPivot(nums);
+		
+		//if pivot if not found then the array is not rotated
+		if(pivot == -1) {
+			//just do normal BS
+			return binarySearch(nums,target,0,nums.length-1);
+		}
+		
+		//but, if pivot is found
+		//then, we have 2 sorted ascending order arrays
+		//we have 3 cases
+		if(nums[pivot] == target) {
+			return pivot;
+		}
+		if(target > nums[0]) {
+			return binarySearch(nums,target,0,pivot-1);			
+		}
+		return binarySearch(nums,target,pivot+1,nums.length-1);	
+	}
+	
+	//finding pivot with duplicates
+	public static int findPivot(int[] arr){
+		int start = 0;
+		int end = arr.length - 1;
+		
+		while(start <= end){
+			int middle = start+(end-start)/2;
+			
+			//4 case start from here
+			//middle<end, is a condition where suppose at one point of rotation, the middle element is the end element. and mid+1 would become out of bounds. hence to prevent the error we are using this.
+			//case 1
+			if(middle<end && arr[middle]>arr[middle+1]) { //according to & operator, if one condition is false, then the other condition wont even run. i.e., T & T = T, F & T = F
+				return middle;
+			}
+			//case 2
+			if(middle>start && arr[middle]<arr[middle-1]) {
+				return middle-1; 
+			}
+			
+			//The change for finding duplicates start here
+			
+			//case 3
+			// If the start,middle,end have same values, then ignore them and increment(start),decrement(end) to get the pivot
+			if(arr[middle] == arr[start] && arr[middle] == arr[end]) {
+				//but if suppose start is pivot, then we should check for it
+				if(arr[start] > arr[start + 1]) {
+					return start;
+				}
+				//else, skip it and increment start value
+				start ++;
+				//simmilarly suppose end is pivot, we check it the same way
+				if(arr[end] < arr[end - 1]) {
+					return end;
+				}
+				//else, skip it and decrement to next value
+				end --;
+			}
+			
+			//case 3
+			//otherwise, if the start is greater then middle or start is equal to middle and end is lesser than middle then increment start or decrement end
+			//since left side is sorted, pivot should be in the right side
+			if(arr[start] > arr[middle] || arr[start] == arr[middle] && arr[middle] > arr[end]) {
+				return start + 1;
+			}else {
+				return end - 1;
+			}
+		}
+		
+		return -1;
+	}
+	
+	//normal binary search code
+	static int binarySearch(int[] arr,int target,int start,int end) {
+		
+		
+		while(start <= end) {
+		
+			int middle = start+(end-start)/2;
+			
+			if(target < arr[middle]) { // search left side
+				end = middle - 1;
+			}else if(target > arr[middle]) { //search right side
+				start = middle + 1;
+			}else {
+				//answer found as the middle value
+				return middle;
+			}
+		}
+		//if none of the return have worked, then.
+		return -1;//if target not found
+	}
+	
+}
+
+	
 
 op:-
+
+1
