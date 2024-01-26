@@ -26,7 +26,8 @@ public class Student{
 		 * 2. All the type of the data in the array should be same.
 		 * 	eg:- int[] numbers = {22,33,'c',45}; - gives error!
 		 * 3. Array objects are stored in heap(Not just array, but all objects... But for now we can consider this).
-		 * 4. Heap objects are not continous.[Continous here means that, in c++ the array are stored in the ram, one-by-one in order(eg:-1,2,3,4). But in java, it is not proven to be stored continous. eg:-)It may be) 1,3,2,4.
+		 * 4. Heap objects are not continous.[Continous here means that, in c++ the array are stored in the ram, one-by-one in order(eg:-1,2,3,4).
+	         *    But in java, it is not proven to be stored continous. eg:-)It may be) 1,3,2,4.
 		 * 5. Dynamic memory allocation takes place during run time.
 		 *  hence, java is not continous, and it depends on JVM(heap,stack memory depends on this).
 		 */
@@ -49,7 +50,7 @@ public class Student{
 	}	
 }
 
-//2]												 what is NULL, basic input program using array.
+//2] What is NULL, basic input program using array.
 
 package javatpoint;
 
@@ -69,7 +70,7 @@ public class Student{
 		System.out.println(arr[3]);// returns NULL.
 		
 		/* What is NULL?
-		 * NULL is not a keyword, but a Literal(,special value). It cannot be assigned to primitives such as int. 
+		 * NULL is not a keyword, but a Literal(special value). It cannot be assigned to primitives such as int. 
 		 * Only to non-primitives it can be given. It is a by default value of reference variables.
 		 */ 
 		
@@ -266,7 +267,7 @@ Enter the elements to be in the matrix:
 [45, 6, 7]
 [89, 0, 9]
 
-//4]											Array List
+//4]	Array List
 
 package javatpoint;
 
