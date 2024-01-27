@@ -352,9 +352,47 @@ Output
 Expected
 [4,0,1,1,3]
 
-8] 
+8] Create Target Array in the Given Order [URL:- https://leetcode.com/problems/create-target-array-in-the-given-order/description/ ]
+
+sol]
+class Solution {
+    public int[] createTargetArray(int[] nums, int[] index) {
+        
+        //result array stored here
+        int[] target = new int[nums.length];
+
+        //array list for grouping index and nums
+		ArrayList<Integer> list= new ArrayList<>();
+
+        //for loop for grouping index and nums elements
+        for(int i = 0;i < nums.length;i++){
+           list.add(index[i], nums[i]);   
+        }
+        
+        //for storing the grouped elements
+        for(int i = 0;i < nums.length; i++){
+            target[i] = list.get(i); 
+        }
+		
+		return target;
+    }
+}
+
+op:-
+nums =
+[0,1,2,3,4]
+
+index =
+[0,1,2,2,1]
+
+Output
+[0,4,1,3,2]
+
+Expected
+[0,4,1,3,2]
+
+8]
 
 sol]
 
 op:-
-
