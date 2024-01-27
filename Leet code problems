@@ -310,8 +310,51 @@ Output
 Expected
 4
 
-7]
+7] How Many Numbers Are Smaller Than the Current Number [URL:- https://leetcode.com/problems/how-many-numbers-are-smaller-than-the-current-number/description/]
+
+/* 
+ * The whole idea is:-
+ * 
+ * initialize the count for each array element[nums] comparison.
+ * initialize an empty array to store the count.
+ * use for loop to traverse through nums[i] element.
+ * for every loop let the count be set to 0, as we need to have a fresh count for each element comparison
+ * use for loop to traverse the loop again, but this time for comparison. nums[j] is used here
+ * use the if condition, nums[j] < nums[i], as per description to get the lowest out of all elements in the array
+ * increment the count if condition true, else the for loop, nums[j] moves on.
+ * finally add the count to the result array.
+ * Then return result. 
+ */
+
+sol]
+class Solution {
+    public int[] smallerNumbersThanCurrent(int[] nums) {
+        
+		int[] result = new int[nums.length];
+		for(int i = 0; i < nums.length; i++) {
+			int count = 0;
+			for(int j = 0; j < nums.length; j++) {
+				if(nums[j] < nums[i]) {
+					count ++;
+				}
+			}
+           	result[i] = count;
+		}
+		return result;  
+    }
+}
+op:- 
+
+nums =
+[8,1,2,2,3]
+Output
+[4,0,1,1,3]
+Expected
+[4,0,1,1,3]
+
+8] 
 
 sol]
 
 op:-
+
