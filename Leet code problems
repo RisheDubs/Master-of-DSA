@@ -439,3 +439,41 @@ true
 
 Expected
 true
+
+9] Count Items Matching a Rule [URL:- https://leetcode.com/problems/count-items-matching-a-rule/]
+
+sol] 
+class Solution {
+    public int countMatches(List<List<String>> items, String ruleKey, String ruleValue) {
+        //since we need to finding matching elements, assume count is 0
+        int count = 0;
+        
+        //now we need to iterate through outer loop to update get(i)
+        for(int i = 0; i < items.size(); i++){
+            if(ruleKey.equals("type") && items.get(i).get(0).equals(ruleValue)) 
+            //get(i) is for outer circle that is iterating, get(0) is for inner loop
+                count++;
+            if(ruleKey.equals("color") && items.get(i).get(1).equals(ruleValue)) 
+                count++;
+            if(ruleKey.equals("name") && items.get(i).get(2).equals(ruleValue)) 
+                count++;
+        }
+        
+        return count;
+    }
+}
+
+op:-
+items = [["phone","blue","pixel"],["computer","silver","phone"],["phone","gold","iphone"]]
+
+ruleKey =
+"type"
+
+ruleValue =
+"phone"
+
+Output
+2
+
+Expected
+2
