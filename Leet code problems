@@ -527,8 +527,40 @@ Output
 Expected
 1
 
-11]
+11] Flipping an Image
 
 sol]
+class Solution {
+    public int[][] flipAndInvertImage(int[][] image) {
+        int row = image.length;
+        int col = image[0].length;
+
+        int[][] result = new int[row][col];
+
+        //reverse a row, revert
+        for(int i = 0;i < row; i++){
+            for(int j=0; j < col; j++){
+                result[i][j] = image[i][col-j-1]; 
+            }
+        }
+
+        //invert
+        for(int i = 0;i < row; i++){
+            for(int j = 0; j < col; j++){
+                result[i][j] = result[i][j] == 0 ? 1 : 0;
+            }
+        }
+
+        return result;
+    }
+}
 
 op:-
+image =
+[[1,1,0],[1,0,1],[0,0,0]]
+
+Output
+[[1,0,0],[0,1,0],[1,1,1]]
+
+Expected
+[[1,0,0],[0,1,0],[1,1,1]]
