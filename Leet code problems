@@ -564,3 +564,62 @@ Output
 
 Expected
 [[1,0,0],[0,1,0],[1,1,1]]
+
+12] Cells with Odd Values in a Matrix [url:- https://leetcode.com/problems/cells-with-odd-values-in-a-matrix/description/]
+
+sol] [vid sol - https://www.youtube.com/watch?v=mC7tpRNR0_o]
+
+class Solution {
+    //What is given:-
+        //the question gives us an matrix with only 0's in it.[[0,0,0],[0,0,0]] -> 2 rows[m], 3 cols[n]
+        //It also provides us with indices for rows and cols. [[0,1], [1,1]] -> means, increment row[0] & increment col[1]. then, increment for row[1], col[1].
+        //increment for indices[0,1] on matrix is, row[0] -> [[1,1,1],[0,0,0]] ,then col[1]-> [[1,2,1],[0,1,0]]
+        //increment for indices[1,1] on matrix is, row[1] -> [[1,2,1],[1,2,1]] ,then col[1]-> [[1,3,1],[1,3,1]]
+        //then return number of odd numbers in array, hence the answer found is 6.
+    
+    public int oddCells(int m, int n, int[][] indices) {
+        //step 1 - creating a new array to store 0's ans later increment the values according to indices
+        int[][] arr = new int[m][n]; //n - col, m - row
+        int k = indices.length; 
+
+        for(int i = 0; i < k; i++){
+            for(int j = 0; j < n; j++){
+                arr[indices[i][0]][j]++;
+            }
+            for(int j = 0; j < m; j++){
+                arr[j][indices[i][1]]++;
+            }
+        }
+
+        //step 2 - finding the number of odd numbers in the 2D array arr. 
+        int count = 0;
+        for(int i = 0; i < m; i++){
+            for(int j=0; j < n; j++){
+                if(arr[i][j] % 2 != 0){
+                    count ++;
+                }
+            }
+        }
+        return count; 
+    }
+}
+
+op:-
+
+m =
+2
+
+n =
+3
+
+indices =
+[[0,1],[1,1]]
+
+Output
+6
+
+13] 
+
+sol]
+
+op:-
