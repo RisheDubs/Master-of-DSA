@@ -625,7 +625,7 @@ class Solution {
     public int diagonalSum(int[][] mat) {
         
         int sum = 0;
-        int mid = mat.length/2;
+        int mid = mat.length/2; //mat.length = 3
 
         for(int i=0; i<mat.length;i++){
             for(int j=0; j<mat.length;j++){
