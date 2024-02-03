@@ -1,1 +1,158 @@
+//Bubble sort [Also called Sinking sort or exchange sort]
+
+/*
+*  Introduction
+   ------------
+
+* Basic sorting 
+  -------------
+
+* consider an array, arr=[3,1,5,4,2];
+* As we can see, it is an unsorted array, so we should sort it in ascending or descending order to get out output.
+* So, sortedArr = [1,2,3,4,5]; which is the desired result
+* BUT, 
+* This is just a normal sorting idea. That brings us to the next question,
+
+* What is Bubble sort?
+  --------------------
+
+* Bubble sort is a comparison sort method. So basically, we are going to carry out an operation for each step of the 
+* sorting process[This step activity differs for each sorting algorithms]. Now lets see how it differs for bubble sort. 
+* Steps:-
+  -----
+* 1] Pass n.o.1
+* a) Every step you are comparing adjacent elements
+* eg:- in the arr = [3,1,5,4,2]. The first 2 elements are going to be compared[i.e, 3 and 1], to check if 1st element 
+* is greater than 2nd. if yes[yes n this case], swap takes place.
+* b) So, the resultant would be, arr = [1,3,5,4,2]. Now, element 2 and 3 are compared for which is greatest among both,
+* obviously, 5 is greater than 3, so it remains unchanged.
+* c) next in arr = [1,3,5,4,2], positions 3 and 4 are compared. 5 is greater than 4, so swap takes place.
+* resulting in, arr = [1,3,4,5,2]
+* d) Then we compare positions 4 and 5. obviously, 5 is greater than 2, so swap takes place.
+* resulting in, arr = [1,3,4,2,5]
+* Hence, pass n.o.1 complete!
+*
+* Before we move on to pass n.o.2, we need to know,
+* Why do we have to do this?
+  --------------------------
+* As we can notice, with the "first pass", the largest element in the array, [5] has come to the end position of array.
+*
+* Now, lets run
+* 2] Pass n.o.2
+* a) Now, the array is, arr = [1,3,4,2,5], compare first 2 elements [1,3]. 3 is greater than 1, so no swap happens.
+* b) arr = [1,3,4,2,5], compare [3,4]. since 4 is greater than 3. no swap happens.
+* c) arr = [1,3,4,2,5], compare [4,2]. since 4 is greater than 2. swap happens resulting in arr=[1,3,2,4,5].
+* d) arr = [1,3,2,4,5], compare [4,5]. since 5 is greater than 4. no swap happens.
+* As we can notice, with the "second pass", the second largest element in the array, [4] has come to the second last position of array.
+* Hence pass n.o.2 complete!
+*
+* Now, lets run
+* 2] Pass n.o.3
+* a) Now, the array is, arr = [1,3,2,4,5], compare first 2 elements [1,3]. 3 is greater than 1, so no swap happens.
+* b) arr = [1,3,2,4,5], compare [3,2]. since 3 is greater than 2. swap happens resulting in arr=[1,2,3,4,5].
+* c) arr = [1,2,3,4,5], compare [3,4]. since 4 is greater than 3. no swap happens.
+* d) arr = [1,2,3,4,5], compare [4,5]. since 5 is greater than 4. no swap happens.
+* Again, As we can notice, with the "Third pass", the third largest element in the array, [3] has come to the mid position of array.
+* Hence pass n.o.3 complete!
+*
+* This is idea and working of bubble sort:-
+  ----------------------------------------
+* Hence, as we can see. With every step, the largest element is being pushed to last, while the lowest remains afront.
+*
+* So, what is the Complexity?
+      -----------------------
+* The "Space complexity" is O(1), since no extra space is required because no copying of array is required. This is 
+* also known as "in-place sorting algorithms". [Means, you dont need to create new array]
+* The "Time complexity" is  
+* - In best case :- O(n), [When array is sorted. eg:- arr=[1,2,3,4,5]]. 
+* - In worst case :- O(n^2), [When array is sorted in opposite. eg:- arr=[5,4,3,2,1]]
+* So if we have 100 elements, in BEST case it takes 100 comparisons and in WORST case 10,000 comparisons.
+* So we can say that, As the SIZE of array is GROWING, the N.O of comparisons is also GROWING.
+*
+* Lets see how Best case works in bubble sort
+  -------------------------------------------
+* The BEST case in bubble sort is n-1, but constants are ignored in complexity, so n. hence, O(n).
+* lets take array, arr=[1,2,3,4,5];
+* so i=0[1] and j=i+1{inner loop}[2], commparisons will be made from index 1 to 4. 
+* The resultant will be index 0[1] < index j[2,3,4,5]. So the loop ran only ONCE.
+* NOTE:- When j never swaps for a value of i[ith pass], it means array is sorted. Hence we end the program.
+*
+* Now, lets see how worst case works in bubble sort
+  -------------------------------------------------
+* 
+* lets take arr = [5,4,3,2,1]
+* where i=0(outer loop) , j=i+1(inner loop)
+* here are the steps that will take place to get a sorted array
+* when i=0 and j=1,2,3,4 (respectively) => 5<4 : F , 5<3 : F, 5<2 : F , 5<1 : F => [4,3,2,1,5] - total swaps, (n-1) = 4
+* when i=1 and j=2,3,4 (resply) => 4<3 : F, 4<2 : F , 5<1 : F => [3,2,1,4,5] - total swaps, (n-2) = 3
+* when i=2 and j=3,4 (resply) => 3<2 : F , 3<1 : F => [2,1,3,4,5] - total swaps, (n-3) = 2
+* when i=3 and j=4 (resply) => : 2<1 : F => [1,2,3,4,5] - total swaps, (n-4) = 1
+* SO, total comparisons - (n-1) + (n-2) + (n-3) + (n-4) => 4n - (1+2+3+4) => 4n - (n * (n+1))/2 => 4n - (n^2 + n)/2
+* => 8n-n^2-n/2 => O((7n - n^2)/2) => constants and lower power elemnts are removed in complexity => Thus,
+* O(n^2) is the WORST case for bubble sort
+*
+* Bubble sort is a STABLE sort algorithm.
+* What is a stable sort algorithm and how does it differ from unstable sort algoritms?
+  ------------------------------------------------------------------------------------
+* consider black() and red[] balls for example
+* unsorted they look something like this,               (10)[20](20)(30)[10]
+* After stable sorting they look something like this,   (10)[10][20](20)(30)
+* After unstable sorting they look something like this, [10](10)(20)[20](30)
+* The difference is that, in original array black ball of 10 was before red ball of 10. 
+* And in sorted array this order is maintained.
+* So,
+* When the original order is maintained for values that are equal that is stable sorting algorithm. 
+* When the order is not maintained when 2 or more values are same that is unstable sorting algorithm. 
+ */
+
+1] Implement basic bubble sort over any array
+
+sol]
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+
+public class Student{
+	public static void main(String[] args) {
+		int[] arr = {5,4,3,2,1};
+		bubbleSort(arr);
+		System.out.println(Arrays.toString(arr));
+	}
+	
+	// we use void because we are not returning anything and also we mentioned space complexity is constant because we 
+  // are not creating any new array. Mainly, bubble sort is an in-place sorting algorithm, so it is sorting the 
+  // original array and not creating a new one.  
+	static void bubbleSort(int[] arr) {
+		boolean swapped; // we are going to check if sorting is required on an pre-sorted array or already sorted elements in the array.
+		// run the steps n-1 times
+		for(int i=0; i<arr.length; i++) {
+			swapped = false; // check if swapping is needed for every i increment
+			// for each step, max item will come at the last respective index
+			for(int j=1; j < arr.length - i; j++) {
+				// swap if item is smaller than previous item
+				if(arr[j] < arr[j-1]) {
+				int temp = arr[j];
+				arr[j] = arr[j-1];
+				arr[j-1] = temp;
+				swapped = true; // this means swapping occurred once
+				}
+			}
+			
+			// if you did not swap for a particular value of i, it means array is sorted
+			if(!swapped) {// or swapped == false;
+				break;
+			}
+		}
+ 
+	}
+	
+}
+
+op:-
+[1, 2, 3, 4, 5]
+
 
