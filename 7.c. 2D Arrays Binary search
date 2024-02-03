@@ -55,8 +55,120 @@ public class Student{
 op:-
 [2, 3]
 
-2] 
+2] binary search in 2d sorted array
 
 sol]
+package javatpoint;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+
+public class Student{
+	public static void main(String[] args) {
+		int[][] matrix = {
+				{1, 2 ,3, 4 }, 
+				{5, 6, 7, 8},
+				{9, 10, 11, 12},
+				{13, 14, 15, 16}};
+		int target = 14 ;
+		int[] answer = search(matrix, target);
+		System.out.println(Arrays.toString(answer));
+	}
+	
+	//A simple binary search for the last 2 rows
+	//search in the rows provided between the cols provided 
+	static int[] binarySearch(int[][] matrix, int rows, int colStart, int colEnd, int target) {
+		while(colStart <= colEnd) {
+			int middle = colStart + (colEnd - colStart)/2;
+			if(matrix[rows][middle] == target) {
+				return new int[]{rows,middle};
+			}
+			if(matrix[rows][middle] < target) {
+				colStart = middle + 1;
+			}
+			else {
+				colEnd = middle - 1;
+			}
+		}
+		return new int[]{-1,-1}; 
+	}
+	
+	static int[] search(int[][] matrix, int target) {
+		
+		int rows = matrix.length;
+		int cols = matrix[0].length; //be cautious, matrix might be empty
+		
+		//the edge case
+		if(rows == 1) { // means 0 and 1, so technically 2 rows left means we do the below
+			return binarySearch(matrix,  0,  0, cols-1,  target);//rows =0, colsStart = 0, colsEnd = cols-1
+		}
+		
+		//To perform BS on middle col.
+		
+		int rowStart = 0;
+		int rowEnd = rows-1;
+		int colMiddle = cols / 2;
+		
+		//run the loop till only 2 rows remaining
+		while(rowStart < (rowEnd - 1)) { //while this is true it will have more than 2 rows
+			//now we apply our 3 cases we have noted first
+			
+			int middle = rowStart + (rowEnd - rowStart) / 2;
+			
+			//if the middle element in the middle column is the answer, then we retuen middle
+			if(matrix[middle][colMiddle] == target) {
+				return new int[]{middle,colMiddle};
+			}
+			//if the middle element of middle column is less than target, ignore rows before it
+			if(matrix[middle][colMiddle] < target) {
+				rowStart = middle;
+			}
+			//if the middle element of middle column is less than target, ignore rows after it
+			else {
+				rowEnd = middle;
+			}
+		}
+		
+		//now we have 2 rows, if loop run successfully
+		//this is where we do the final 2 checks
+		
+		//check whether the target is in the column of 2 rows
+		if(matrix[rowStart][colMiddle] == target) {
+			return new int[]{rowStart,colMiddle};
+		}
+		//if the while loop condition is violated, then end is going to be,
+		if(matrix[rowStart + 1][colMiddle] == target) {
+			return new int[]{rowStart + 1,colMiddle};
+		}
+		
+		//otherwise, search in 1st,2nd,3rd,4th halves
+		
+		//search in first half
+		if(target <= matrix[rowStart][colMiddle - 1]) { //matrix[rowStart][colMiddle - 1] -> is basically where 1 lies
+			return binarySearch(matrix,  rowStart,  0, colMiddle-1,  target);//rows = rowStart, colsStart = 0, colsEnd = colMiddle-1
+		}
+		
+		//search in second half
+		//we add an and condition because the target should be less than [cols-1] element [i.e, 4] also
+		if(target >= matrix[rowStart][colMiddle + 1] && target <= matrix[rowStart][cols - 1]) { //matrix[rowStart][colMiddle + 1] -> is basically where 3,4 lies
+			return binarySearch(matrix,  rowStart,  colMiddle + 1, cols-1,  target);//rows = rowStart, colsStart = colMiddle + 1, colsEnd = cols-1
+		}
+		
+		//search in third half
+		if(target <= matrix[rowStart + 1][colMiddle - 1]) { //matrix[rowStart + 1][colMiddle - 1] -> is basically where 5 lies
+			return binarySearch(matrix,  rowStart + 1,  0, colMiddle-1,  target);//rows = rowStart + 1, colsStart = 0, colsEnd = colMiddle-1
+
+		}
+		//search in fourth half
+		else { //is where 7,8 lies
+			return binarySearch(matrix,  rowStart+1,  colMiddle + 1, cols - 1,  target);//rows = rowStart + 1, colsStart = colMiddle + 1, colsEnd = cols - 1
+		}
+		}
+		
+	}
+	
 op:-
+[3,1]
