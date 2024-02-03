@@ -618,8 +618,41 @@ indices =
 Output
 6
 
-13] 
+13]  Matrix Diagonal Sum [URL:- https://leetcode.com/problems/matrix-diagonal-sum/description/]
 
 sol]
+class Solution {
+    public int diagonalSum(int[][] mat) {
+        
+        int sum = 0;
+        int mid = mat.length/2;
+
+        for(int i=0; i<mat.length;i++){
+            for(int j=0; j<mat.length;j++){
+                //primary diagonal
+                if(i == j){
+                   sum += mat[i][j];
+                }
+                //secondry diagonal
+                if((i+j) == (mat.length-1)){
+                    sum += mat[i][j];
+                }
+            }
+        }
+        //for checking if the middle element is repeated or not
+        if(mat.length % 2 != 0){
+            sum -= mat[mid][mid];//if repeated subtract from sum
+        }
+
+        return sum;
+    }
+}
 
 op:-
+
+mat =
+[[1,2,3],[4,5,6],[7,8,9]]
+Output
+25
+Expected
+25
