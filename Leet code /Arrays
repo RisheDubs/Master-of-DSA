@@ -1,1 +1,659 @@
+Arrays
+
+1] [https://leetcode.com/problems/build-array-from-permutation/description/] - Given a zero-based permutation nums (0-indexed), build an array ans of the same 
+length where ans[i] = nums[nums[i]] for each 0 <= i < nums.length and return it.
+
+A zero-based permutation nums is an array of distinct integers from 0 to nums.length - 1 (inclusive).
+
+sol] 
+
+/*
+* Intuition
+* We want to construct a new array 'ans' using the given 'nums' array such that
+* ans[i] = nums[nums[i]] for all valid indices i.
+* Approach
+* 1. Initialize an empty array 'ans' with the same length as 'nums'.
+* 2. Iterate through 'nums' from index 0 to the length of 'nums'.
+* 3. For each index i, set ans[i] to nums[nums[i]].
+* 4. Return the 'ans' array as the result.
+* Complexity
+* Time complexity:O(n)
+*
+* Space complexity:O(n)
+*/
+// Code
+class Solution {
+    public int[] buildArray(int[] nums) {
+        int[] ans = new int[nums.length];
+        
+        for (int i = 0; i < nums.length; i++) {
+            ans[i] = nums[nums[i]];
+        }
+        
+        return ans;
+    }
+
+    public static void main(String[] args) {
+        Solution sc = new Solution();
+        int[] nums = {0, 2, 1, 5, 3, 4};
+        int[] result = sc.buildArray(nums);
+        
+        for (int num : result) {
+            System.out.print(num + " ");
+        }
+    }
+}
+
+op:-
+Input
+nums =
+[0,2,1,5,3,4]
+Output
+[0,1,2,4,5,3]
+Expected
+[0,1,2,4,5,3]
+
+2] [https://leetcode.com/problems/concatenation-of-array/description/] - Given an integer array nums of length n, you want to create an array ans of 
+length 2n where ans[i] == nums[i] and ans[i + n] == nums[i] for 0 <= i < n (0-indexed).
+
+Specifically, ans is the concatenation of two nums arrays.
+
+Return the array ans.
+
+sol]
+/*
+* Intuition :
+*  The code aims to concatenate the given array nums with itself, forming a new array of length '2*len', where len is the length of the input array. 
+*  In other words, the code duplicates each element in nums and appends it to the end of the array.
+*
+* Approach
+*  Create a new integer array 'ans' of size '2*len', where 'len' is the length of the input array 'nums'.
+*  Iterate over the elements of 'nums' using a for loop.
+*  For each element at index 'i', assign 'nums[i]' to 'ans[i]' (copy the element).
+*  Assign 'nums[i]' to 'ans[i+len]' (append the element to the end of the array).
+*  Return the resulting array 'ans'.
+* Complexity
+*  Time complexity:
+*   The code has a time complexity of O(n), where n is the length of the input array nums. The loop iterates over each element in nums exactly once.
+*
+*  Space complexity:
+*   The code has a space complexity of O(n), where n is the length of the input array nums. The additional space is used to store the resulting array ans, 
+*   which has a size of 2*len.
+*/
+
+//code:-
+
+class Solution {
+    public int[] getConcatenation(int[] nums) {
+        int len = nums.length;
+        int[] ans = new int[2*len];
+        for(int i = 0; i < len; i++){
+            ans[i] = nums[i];
+            ans[i+len] = nums[i];
+        }
+        System.gc();
+        return ans;
+    }
+}
+
+op:-
+nums =
+[1,2,1]
+Output
+[1,2,1,1,2,1]
+Expected
+[1,2,1,1,2,1]
+
+3] Richest customer wealth - You are given an m x n integer grid accounts where accounts[i][j] is the amount of money the i​​​​​​​​​​​th​​​​ customer has in the j​​​​​​​​​​​th​​​​ bank. 
+Return the wealth that the richest customer has.
+
+A customer's wealth is the amount of money they have in all their bank accounts. The richest customer is the customer that has the maximum wealth.
+
+sol]
+/*
+* Intuition :
+*  Brute force method
+* 
+* Approach:-
+*
+*  Find the sum of each row.
+*  if the sum is greater then the previous? update new sum : moveon
+*  return the greatest sum
+*
+*/
+
+sol] 
+
+class Solution {
+    public int maximumWealth(int[][] accounts) {
+        int result = 0;
+        for(int customer=0;customer<accounts.length;customer++){
+            int sum = 0;
+            for(int account=0;account<accounts[customer].length;account++){
+                sum = sum + accounts[customer][account];
+            }
+            result = Math.max(sum,result);
+            /*
+            if(sum>result){
+                result = sum;
+            }
+            */
+        }
+        return result;
+    }
+}
+
+op:-
+
+Input
+accounts =
+[[1,2,3],[3,2,1]]
+Output
+6
+Expected
+6
+
+4] Shuffle the array [URL -  https://leetcode.com/problems/shuffle-the-array/]
+
+Given the array nums consisting of 2n elements in the form [x1,x2,...,xn,y1,y2,...,yn]. 
+Return the array in the form [x1,y1,x2,y2,...,xn,yn].
+
+sol] 
+// the first half n elements are x and the second half n elements are y
+// we can iterate n times and push nums[i] and nums[i + n]
+// since the distance for each x_i and y_i is just `n`
+
+class Solution {
+    public int[] shuffle(int[] nums, int n) {
+        int[] ans = new int[2*n]; //assign new answer array
+
+        for(int i=0; i<n; i++){
+            ans[2*i] = nums[i]; //x values are found
+            ans[2*i + 1] = nums[i+n]; //y values are found 
+        }
+        return ans; //order the x and y elements and return to ans array
+    }
+}
+
+op:-
+
+nums =
+[2,5,1,3,4,7]
+n =
+3
+Output
+[2,3,5,4,1,7]
+Expected
+[2,3,5,4,1,7]
+
+5] Kids With the Greatest Number of Candies [URL:- https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/description/]
+
+sol] //my solution
+class Solution {
+    public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
+           
+           //create new arrayList featuring result
+		   List<Boolean> result = new ArrayList<>();
+		   
+           //call max function to get the max element in array  
+	       int maxCandies = maxCandies(candies);
+	      
+          
+	       for(int i = 0; i < candies.length; i++){
+	           candies[i] = candies[i] + extraCandies;
+
+	           if(candies[i] >= maxCandies){
+	               result.add(true);
+	           }else {
+	        	   result.add(false);
+	           }
+	       } 
+	       return result;
+	    }
+
+        //method for finding maximum in an array
+	    public static int maxCandies(int[] candies){
+	        int maxCandies = candies[0];
+	        
+	        for(int i=0; i < candies.length; i++){
+	            if(candies[i] > maxCandies ){
+	                maxCandies =  candies[i];
+	            }
+	        }
+	        return maxCandies;
+	        
+	    }
+}
+
+//optimized solution
+
+class Solution {
+    public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
+        int maxCandies = 0;
+        for (int candy : candies) {
+            maxCandies = Math.max(maxCandies, candy);
+        }
+        
+        List<Boolean> result = new ArrayList<>();
+        
+        for (int candy : candies) {
+            if (candy + extraCandies >= maxCandies) {
+                result.add(true);
+            } else {
+                result.add(false);
+            }
+        }
+        
+        return result;
+    }
+}
+
+op:-
+candies =
+[2,3,5,1,3]
+
+extraCandies =
+3
+
+Output
+[true,true,true,false,true]
+
+Expected
+[true,true,true,false,true]
+
+6] Number of Good Pairs [URL:- https://leetcode.com/problems/number-of-good-pairs/description/]
+
+sol]
+
+/*
+ * The given solution uses a nested loop to iterate through all possible pairs of indices (i, j) where i < j. 
+*For each pair, it checks whether the elements at those indices are equal, and if they are, it increments the count
+*variable. Finally, it returns the count, which represents the number of good pairs in the array.
+1. Initialize a variable count to 0. This variable will be used to keep track of the number of good pairs.
+2. Use a for loop to iterate through each index i in the array nums. This loop represents the first element of a 
+*potential pair.
+3. Within the outer loop, use another for loop to iterate through each index j in the array nums, where j is greater
+*than i. This loop represents the second element of the pair and ensures that i < j.
+4. Inside the inner loop, check if nums[i] is equal to nums[j]. If they are equal, it means you've found a good pair, so increment the count variable by 1.
+5. Continue this process, checking all possible pairs in the array.
+6. After both loops have finished, the count variable will hold the total number of good pairs.
+7. Finally, return the count as the result.
+*This solution has a time complexity of O(n^2) because it uses nested loops to compare all possible pairs of elements 
+*in the array. For larger arrays, this can be inefficient, so there are more optimized approaches to solving this 
+*problem with a time complexity of O(n).
+ */
+
+class Solution {
+    public int numIdenticalPairs(int[] nums) {
+     
+      int count = 0;
+        
+		for(int i=0;i<nums.length-1;i++) {
+			for(int j=i+1; j<nums.length;j++) {
+				if(nums[i] == nums[j]) {
+					count ++;
+                }
+			}
+			
+        }
+        return count;
+        
+    }
+}
+
+op:-
+
+nums =
+[1,2,3,1,1,3]
+Output
+4
+Expected
+4
+
+7] How Many Numbers Are Smaller Than the Current Number [URL:- https://leetcode.com/problems/how-many-numbers-are-smaller-than-the-current-number/description/]
+
+/* 
+ * The whole idea is:-
+ * 
+ * initialize the count for each array element[nums] comparison.
+ * initialize an empty array to store the count.
+ * use for loop to traverse through nums[i] element.
+ * for every loop let the count be set to 0, as we need to have a fresh count for each element comparison
+ * use for loop to traverse the loop again, but this time for comparison. nums[j] is used here
+ * use the if condition, nums[j] < nums[i], as per description to get the lowest out of all elements in the array
+ * increment the count if condition true, else the for loop, nums[j] moves on.
+ * finally add the count to the result array.
+ * Then return result. 
+ */
+
+sol]
+class Solution {
+    public int[] smallerNumbersThanCurrent(int[] nums) {
+        
+		int[] result = new int[nums.length];
+		for(int i = 0; i < nums.length; i++) {
+			int count = 0;
+			for(int j = 0; j < nums.length; j++) {
+				if(nums[j] < nums[i]) {
+					count ++;
+				}
+			}
+           	result[i] = count;
+		}
+		return result;  
+    }
+}
+op:- 
+
+nums =
+[8,1,2,2,3]
+Output
+[4,0,1,1,3]
+Expected
+[4,0,1,1,3]
+
+8] Create Target Array in the Given Order [URL:- https://leetcode.com/problems/create-target-array-in-the-given-order/description/ ]
+
+sol]
+class Solution {
+    public int[] createTargetArray(int[] nums, int[] index) {
+        
+        //result array stored here
+        int[] target = new int[nums.length];
+
+        //array list for grouping index and nums
+		ArrayList<Integer> list= new ArrayList<>();
+
+        //for loop for grouping index and nums elements
+        for(int i = 0;i < nums.length;i++){
+           list.add(index[i], nums[i]);   
+        }
+        
+        //for storing the grouped elements
+        for(int i = 0;i < nums.length; i++){
+            target[i] = list.get(i); 
+        }
+		
+		return target;
+    }
+}
+
+op:-
+nums =
+[0,1,2,3,4]
+
+index =
+[0,1,2,2,1]
+
+Output
+[0,4,1,3,2]
+
+Expected
+[0,4,1,3,2]
+
+8] Check if the Sentence Is Pangram [URL:- https://leetcode.com/problems/check-if-the-sentence-is-pangram/description/]
+
+sol] 
+
+//There are two methods used to solve the question
+
+// Method 1:- Brute force method, linear search with String function
+prog:-
+class Solution {
+    public boolean checkIfPangram(String s) {
+            return s.contains("a") && s.contains("b") && s.contains("c") && s.contains("d") && s.contains("e") && s.contains("f") && s.contains("g") && s.contains("h") && s.contains("i") && s.contains("j") && s.contains("k") && s.contains("l") && s.contains("m") && s.contains("n") && s.contains("o") && s.contains("p") && s.contains("q") && s.contains("r") && s.contains("s") && s.contains("t") && s.contains("u") && s.contains("v") && s.contains("w") && s.contains("x") && s.contains("y") && s.contains("z");
+    }
+}
+
+// Method 2:- with string functions [indexOf() & charAt()]
+prog:-
+
+class Solution {
+    public boolean checkIfPangram(String sentence) {
+        //condition to return false if we dont have all the alphabets in the sentence array
+        if(sentence.length()<26){
+            return false;
+        }
+
+        //given a string of all the alphabets
+        String alphabets = "abcdefghijklmnopqrstuvwxyz";
+        //traverse through the string to check every letter
+        for(int i = 0;i < alphabets.length();i++){
+            //indexOf() - Returns the position of the first found occurrence of specified characters in a string
+            //charAt(position) - character at the specified position 
+            if(sentence.indexOf(alphabets.charAt(i)) == -1){ 
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+op:-
+
+sentence =
+"thequickbrownfoxjumpsoverthelazydog"
+
+Output
+true
+
+Expected
+true
+
+9] Count Items Matching a Rule [URL:- https://leetcode.com/problems/count-items-matching-a-rule/]
+
+sol] 
+class Solution {
+    public int countMatches(List<List<String>> items, String ruleKey, String ruleValue) {
+        //since we need to finding matching elements, assume count is 0
+        int count = 0;
+        
+        //now we need to iterate through outer loop to update get(i)
+        for(int i = 0; i < items.size(); i++){
+            if(ruleKey.equals("type") && items.get(i).get(0).equals(ruleValue)) 
+            //get(i) is for outer circle that is iterating, get(0) is for inner loop
+                count++;
+            if(ruleKey.equals("color") && items.get(i).get(1).equals(ruleValue)) 
+                count++;
+            if(ruleKey.equals("name") && items.get(i).get(2).equals(ruleValue)) 
+                count++;
+        }
+        
+        return count;
+    }
+}
+
+op:-
+items = [["phone","blue","pixel"],["computer","silver","phone"],["phone","gold","iphone"]]
+
+ruleKey =
+"type"
+
+ruleValue =
+"phone"
+
+Output
+2
+
+Expected
+2
+
+10] Find the Highest Altitude [URL:- https://leetcode.com/problems/find-the-highest-altitude/description/ ]
+
+sol]
+/* 
+ * Intuition:
+ *To find the highest altitude, we need to calculate the cumulative sum of the altitude gains at each step. 
+ *Starting from the initial altitude of 0, we keep adding the gain at each step to the current altitude. 
+ *The highest altitude reached during this process is the answer we are looking for.
+ *
+ * Approach:
+ *Initialize two variables: maxAltitude and currentAltitude to keep track of the maximum altitude encountered 
+ *so far and the current altitude, respectively. Set both variables to 0.
+ *Iterate over the gain vector, starting from the first element.
+ *At each step, update the currentAltitude by adding the gain of the current step.
+ *Compare the currentAltitude with the maxAltitude. If it is greater, update maxAltitude to the new value.
+ *Repeat steps 3-4 for all elements in the gain vector.
+ *Once the iteration is complete, maxAltitude will hold the highest altitude reached.
+ *Return the value of maxAltitude as the result.
+ *This approach ensures that we keep track of the maximum altitude encountered during the traversal and avoids 
+ *unnecessary modifications to the input vector. By iterating over the gain vector only once, the solution is 
+ *efficient and provides the correct result.
+*/
+
+class Solution {
+    public int largestAltitude(int[] gain) {
+        
+        int peak = 0; //MAX
+        int currentAltitude = 0; //since in question mentioned, start should always be 0
+
+        for(int i=0;i<gain.length;i++){
+            currentAltitude += gain[i]; //starts with a 0 in front
+            peak = Math.max(peak,currentAltitude);//function to find maximum in an array
+        }
+
+        return peak;
+
+    }
+}
+
+op:-
+gain =
+[-5,1,5,0,-7]
+
+Output
+1
+
+Expected
+1
+
+11] Flipping an Image
+
+sol]
+class Solution {
+    public int[][] flipAndInvertImage(int[][] image) {
+        int row = image.length;
+        int col = image[0].length;
+
+        int[][] result = new int[row][col];
+
+        //reverse a row, revert
+        for(int i = 0;i < row; i++){
+            for(int j=0; j < col; j++){
+                result[i][j] = image[i][col-j-1]; 
+            }
+        }
+
+        //invert
+        for(int i = 0;i < row; i++){
+            for(int j = 0; j < col; j++){
+                result[i][j] = result[i][j] == 0 ? 1 : 0;
+            }
+        }
+
+        return result;
+    }
+}
+
+op:-
+image =
+[[1,1,0],[1,0,1],[0,0,0]]
+
+Output
+[[1,0,0],[0,1,0],[1,1,1]]
+
+Expected
+[[1,0,0],[0,1,0],[1,1,1]]
+
+12] Cells with Odd Values in a Matrix [url:- https://leetcode.com/problems/cells-with-odd-values-in-a-matrix/description/]
+
+sol] [vid sol - https://www.youtube.com/watch?v=mC7tpRNR0_o]
+
+class Solution {
+    //What is given:-
+        //the question gives us an matrix with only 0's in it.[[0,0,0],[0,0,0]] -> 2 rows[m], 3 cols[n]
+        //It also provides us with indices for rows and cols. [[0,1], [1,1]] -> means, increment row[0] & increment col[1]. then, increment for row[1], col[1].
+        //increment for indices[0,1] on matrix is, row[0] -> [[1,1,1],[0,0,0]] ,then col[1]-> [[1,2,1],[0,1,0]]
+        //increment for indices[1,1] on matrix is, row[1] -> [[1,2,1],[1,2,1]] ,then col[1]-> [[1,3,1],[1,3,1]]
+        //then return number of odd numbers in array, hence the answer found is 6.
+    
+    public int oddCells(int m, int n, int[][] indices) {
+        //step 1 - creating a new array to store 0's ans later increment the values according to indices
+        int[][] arr = new int[m][n]; //n - col, m - row
+        int k = indices.length; 
+
+        for(int i = 0; i < k; i++){
+            for(int j = 0; j < n; j++){
+                arr[indices[i][0]][j]++;
+            }
+            for(int j = 0; j < m; j++){
+                arr[j][indices[i][1]]++;
+            }
+        }
+
+        //step 2 - finding the number of odd numbers in the 2D array arr. 
+        int count = 0;
+        for(int i = 0; i < m; i++){
+            for(int j=0; j < n; j++){
+                if(arr[i][j] % 2 != 0){
+                    count ++;
+                }
+            }
+        }
+        return count; 
+    }
+}
+
+op:-
+
+m =
+2
+
+n =
+3
+
+indices =
+[[0,1],[1,1]]
+
+Output
+6
+
+13]  Matrix Diagonal Sum [URL:- https://leetcode.com/problems/matrix-diagonal-sum/description/]
+
+sol]
+class Solution {
+    public int diagonalSum(int[][] mat) {
+        
+        int sum = 0;
+        int mid = mat.length/2; //mat.length = 3
+
+        for(int i=0; i<mat.length;i++){
+            for(int j=0; j<mat.length;j++){
+                //primary diagonal
+                if(i == j){
+                   sum += mat[i][j];
+                }
+                //secondry diagonal
+                if((i+j) == (mat.length-1)){
+                    sum += mat[i][j];
+                }
+            }
+        }
+        //for checking if the middle element is repeated or not
+        if(mat.length % 2 != 0){
+            sum -= mat[mid][mid];//if repeated subtract from sum
+        }
+
+        return sum;
+    }
+}
+
+op:-
+
+mat =
+[[1,2,3],[4,5,6],[7,8,9]]
+Output
+25
+Expected
+25
 
