@@ -96,8 +96,54 @@ Output
 Expected
 2
 
-2] 
+2] Guess Number Higher or Lower [URL:- https://leetcode.com/problems/guess-number-higher-or-lower/description/]
 
 sol]
+/* 
+1) Initialize first to 1 and last to n.
+2) While first is less than or equal to last, do the following:
+    a. Compute mid as first + (last - first) / 2.
+    b. If guess(mid) returns 0, return mid.
+    c. If guess(mid) returns -1, update last to mid - 1.
+    d. If guess(mid) returns 1, update first to mid + 1.
+3) Return -1.
+*/
+
+/*
+Time Complexity and Space Complexity:
+Time complexity:   O(logn)
+Space complexity:  O(1)
+*/
+
+public class Solution extends GuessGame {
+    public int guessNumber(int n) {
+       int start = 1;
+       int end = n;
+
+       while( start <= end ){
+           int mid = start + (end-start)/2;
+           if(guess(mid) == 0){
+               return mid;
+           }
+           else if(guess(mid) == -1){
+               end = mid - 1;
+           }else{
+               start = mid + 1;
+           }
+        
+       }
+       return -1; 
+    }
+}
 
 op:-
+
+Input
+2
+1
+
+Output
+1
+
+Expected
+1
