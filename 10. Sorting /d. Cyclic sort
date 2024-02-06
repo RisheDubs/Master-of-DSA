@@ -96,7 +96,7 @@ In Best case:-
 arr=[1,2,3,4,5] - as we know already sorted array.
 Time complexity is O(n).
 
-Space complecity:-
+Space complexity:-
 ----------------
 
 No new space is being made, so we only have O(1).
@@ -107,4 +107,47 @@ No new space is being made, so we only have O(1).
 1] Apply cyclic sort on an unsorted array and get it sorted.
 
 sol]
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+
+public class Student{
+	public static void main(String[] args) {
+		int[] arr = {5,3,4,1,2};
+		cyclicSort(arr);
+		System.out.println(Arrays.toString(arr));
+	}
+	
+	static void cyclicSort(int[] arr) {
+		
+		int i = 0;
+		while(i < arr.length) {
+			int correctIndex = arr[i] - 1;
+			if(arr[i] != arr[correctIndex]) {
+				swap(arr, i, correctIndex);
+			}else {
+				i++;
+			}
+		}
+		
+	}
+	
+	static int swap(int[] arr, int first, int second) {
+		
+		int temp = arr[first];
+		arr[first] = arr[second];
+		arr[second] = temp;
+		
+		return temp;
+	}
+	
+}
+
+op:-
+[1, 2, 3, 4, 5]
+
 
