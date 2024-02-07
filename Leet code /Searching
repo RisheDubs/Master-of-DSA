@@ -182,7 +182,50 @@ Output
 Expected
 4
 
-4]
+4] Two Sum II - Input Array Is Sorted [URL:- https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/]
+
+sol]
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int[] newArr = new int[2]; //because the result is always 2 indices
+
+        int start = 0;
+        int end = nums.length - 1;
+
+        while(start < end){
+            //declare the end if sum is greater than target
+            if(nums[start] + nums[end] > target){
+                end --;
+            }
+            //declare the start if sum is lesser than target
+            else if(nums[start] + nums[end] < target){
+                start ++;
+            }
+            //if middle is equal to target return both the digits as it is, becuase its the answer
+            else{
+                newArr[0] = start+1; //since we start, "start" from 0 and not 1, we have to add 1 to start, becuase according to question, the array is "1-indexed"
+                newArr[1] = end+1;
+            break; //if condition hits break the loop, or infinite loop occurs.
+            }
+        }
+        return newArr;
+    }
+}
+
+// time complexity is O(n*logn);
+// space complexity is O(1);
+
+op:-
+numbers =
+[2,3,4]
+
+target =
+6
+
+Output
+[1,3]
+
+5]
 
 sol]
 
