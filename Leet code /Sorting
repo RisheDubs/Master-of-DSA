@@ -1,3 +1,6 @@
+******************* Notes avilable ***************************
+-vid link:- [https://www.youtube.com/watch?v=JfinxytTYFQ&t=1269s]
+
 1] Missing Number [URL:- https://leetcode.com/problems/missing-number/]
 
 sol] //Amazon asked question
@@ -37,8 +40,6 @@ nums =
 Output
 2
 
-Expected
-2
 
 2] Find All Numbers Disappeared in an Array [URL:- ]https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/description/
 
@@ -82,3 +83,52 @@ nums =
 Output
 [5,6]
 
+3] Find the Duplicate Number [URL:- https://leetcode.com/problems/find-the-duplicate-number/description/]
+
+sol] //Amazon question
+class Solution {
+    public int findDuplicate(int[] nums) {
+
+        int i = 0;
+        while(i < nums.length){
+            if(nums[i] != i+1){
+                
+                int correctIndex = nums[i] - 1;
+            
+                if(nums[i] != nums[correctIndex]){
+                    int temp = nums[i];
+                    nums[i] = nums[correctIndex];
+                    nums[correctIndex] = temp;
+
+                }else{
+                    return nums[i];
+                }
+            }else{
+                i++;
+            }
+
+        }
+        return -1;
+    }
+}
+        
+
+op:- 
+
+nums =
+[1,3,4,2,2]
+
+Output
+2
+
+4] [URL:- ]
+
+sol]
+
+op:-
+
+5] [URL:- ]
+
+sol]
+
+op:-
