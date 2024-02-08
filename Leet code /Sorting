@@ -1,5 +1,84 @@
-1]
+1] Missing Number [URL:- https://leetcode.com/problems/missing-number/]
 
-sol]
+sol] //Amazon asked question
 
-op]
+class Solution {
+    public int missingNumber(int[] nums) {
+       int i = 0;
+       int n = nums.length;
+       while(i < n){
+           int correctIndex = nums[i];
+           //swap only if, element{here, nums[i]} less than length and element not equal to correct index.
+           if(nums[i] < n && nums[i] != nums[correctIndex]){
+               int temp = nums[i];
+               nums[i] = nums[correctIndex];
+               nums[correctIndex] = temp;
+           }else{
+               i++;
+           }
+       }
+       //search for first missing number
+       //this searches for all the elements within the range of 0 to n(not n)
+       for(i=0; i<n ; i++){
+           if(nums[i] != i){
+               return i;
+           }
+       }
+       
+       //return the length of nums, if the target is the last element of array
+       return n; 
+    }
+}
+
+op:-
+nums =
+[3,0,1]
+
+Output
+2
+
+Expected
+2
+
+2] Find All Numbers Disappeared in an Array [URL:- ]https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/description/
+
+sol] 
+class Solution {
+    public List<Integer> findDisappearedNumbers(int[] nums) {
+        int n = nums.length;
+        int i = 0;
+
+        List<Integer> ans = new ArrayList<>();
+
+        //same ordinary cyclic sort
+        while(i < n){
+           int correctIndex = nums[i] - 1;
+           if(nums[i] != nums[correctIndex]){
+               int temp = nums[i];
+               nums[i] = nums[correctIndex];
+               nums[correctIndex] = temp;
+           }else{
+               i++;
+           } 
+        }
+
+        //the only change is this.
+        //find the missing numbers
+        for(int index = 0; index < n ; index++){
+            if(nums[index] != index+1){
+                ans.add(index + 1);
+            }
+        }
+
+        return ans;
+
+    }
+}
+
+op:-
+nums =
+[4,3,2,7,8,2,3,1]
+
+Output
+[5,6]
+
