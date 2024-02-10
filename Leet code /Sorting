@@ -205,8 +205,45 @@ Output
 Expected
 [2,3]
 
-6] [URL:- ]
+6] First Missing Positive [URL:- https://leetcode.com/problems/first-missing-positive/description/ ]
 
-sol]
+sol] 
+class Solution {
+    public int firstMissingPositive(int[] nums) {
+       int i = 0;
+       while(i < nums.length){
 
-op:-
+        int correctIndex = nums[i] - 1;
+
+        //1. The result should be positive so ignore the negative elements, or numbers below 0   
+        //2. element should less than equal to array length
+        //3. As usual, if element in i not equal to correct index, then execute condition 
+        if(nums[i] > 0 && nums[i] <= nums.length && nums[i] != nums[correctIndex]){
+            int temp = nums[i];
+            nums[i] = nums[correctIndex];
+            nums[correctIndex] = temp;   
+        }else{
+            i++;
+        }
+        }
+
+
+        for(int j=0 ; j < nums.length ; j++){
+            if(nums[j] != j + 1){
+                return j + 1;
+            }
+        } 
+        //since none of the elements [from 1 to N have the ans] then n+1, should be the index that is the answer
+        return nums.length + 1; 
+    }
+}
+
+op:- 
+nums =
+[1,2,0]
+
+Output
+3
+
+Expected
+3
