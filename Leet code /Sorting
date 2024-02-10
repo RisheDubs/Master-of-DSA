@@ -121,13 +121,91 @@ nums =
 Output
 2
 
-4] [URL:- ]
+4] Find All Duplicates in an Array [URL:- https://leetcode.com/problems/find-all-duplicates-in-an-array/description/]
 
 sol]
+class Solution {
+    public List<Integer> findDuplicates(int[] nums) {
+      
+       List<Integer> arr = new ArrayList<>();
+
+       int i = 0;
+       while(i < nums.length){
+
+        int correctIndex = nums[i] - 1;
+           
+        if(nums[i] != nums[correctIndex]){
+            int temp = nums[i];
+            nums[i] = nums[correctIndex];
+            nums[correctIndex] = temp;   
+            }else{
+               i++;
+            }
+        }
+
+        for(int j=0 ; j < nums.length ; j++){
+            if(nums[j] != j + 1){
+                arr.add(nums[j]);
+            }
+        } 
+        return arr; 
+    }
+           
+}
+
 
 op:-
+nums =
+[4,3,2,7,8,2,3,1]
 
-5] [URL:- ]
+Output
+[3,2]
+
+5] Set Mismatch [URL:- https://leetcode.com/problems/set-mismatch/description/]
+
+sol]
+class Solution {
+    public int[] findErrorNums(int[] nums) {
+        int[] ans = new int[2];
+
+        //start of cyclic sort
+        int i = 0;
+        while(i < nums.length){
+            int correctIndex = nums[i] - 1;
+            if(nums[i] != nums[correctIndex]){
+                int temp = nums[i];
+                nums[i] = nums[correctIndex];
+                nums[correctIndex] = temp;   
+            }else{
+                i++;
+            }
+        }
+        //end of cyclic sort   
+
+        
+        for(int j=0 ; j < nums.length; j++){
+            if(nums[j] != j+1){
+                ans[0] = nums[j];    //to find, repeating number
+                ans[1] = j + 1;      //to find missing number of error index
+            }
+        }
+
+        return ans;   
+    }
+    //end of findErrorNums
+}
+
+op:-
+nums =
+[1,2,2,4]
+
+Output
+[2,3]
+
+Expected
+[2,3]
+
+6] [URL:- ]
 
 sol]
 
