@@ -1,0 +1,140 @@
+// Strings and String Builders
+// Strings are a collection of characters. eg - String name = "Rishe";
+
+/* Internal working of strings
+*
+When we take the example, String name = "Rishe";
+We think how does this store internally and work the way it is supposed to.
+
+Lets take some String knowledge to understand,
+---------------------------------------------
+- String is the most used class in java's class library
+-|- Every wonder why onlt String start with a caps "S", because it is a "class", All classes in java start with caps.
+- Lets split the example :- String     name                 =   "Rishe";
+                            Data type  reference variable        object
+
+So next question is how is it being stored internally?
+-----------------------------------------------------
+Lets take another example,
+String A = "Rishe";
+String B = "Rishe";
+Here we might think, "Is it creating 2 different objects" or "Both the reference variables pointing to the same object"?
+In order to know this, we need 2 important concepts to be understood, 
+                                          ---------
+- String pool
+ What is a string pool, Lets take the verh first example, When we take String name = "Rishe"; - it is being stored 
+ like this in the memory
+ 
+                       Heap - sepearte memory , Use case - makes our program optimized
+ |         |           |--------------|
+ |         |           |   |-------|  | 
+ |   name  |           |   |pool   |  |
+ |         |           |   |"Rishe"|  |
+ |         |           |   |_______|  |
+ |_________|           |              | Where name is pointed towards "Rishe".
+
+ Definition:- 
+ String pool is nothing but a seperate memory structure inside the heap.
+ 
+ Use case:- 
+ Why a seperate pool? Why cant we just put it inside the heap like we do for any other objects?
+ Because, All the simillar values of strings are not recreated in the pool.
+ What this means is that, take the latest example of string A and string B pointing towards the same, "Rishe",
+ The pool checks and be like, "Rishe" already exist in the pool, so let refernce variable "B" point towards the same
+ object in the pool.
+
+ SO what is a heap?
+              -----
+So heap is basically a seperate memory, and its use case is to optimize the program. If we take the previous example, 
+suppose instead of jut 2 reference variable, there exist 10 more, the heap wont create 10 different objects, but
+it will point towards the one that is similar to the one we just created.
+              
+- Immutability
+Strings are immutable in java, meaning you cannot change a string object once created. 
+Eg:- suppose if I want to rename STring A to something like = "Rishekesh", I cannot do that, instead I will have to
+     create a new object only.
+Why are Strings immutable, For "Security reasons". We know that for optimisation using string pool there are many 
+reference variables pointing towards the same object.
+
+Now lets see something of an example,
+
+prog:-
+String a = "Rishe";
+System.out.println(a);
+a = "rishekesh";
+System.out.println(a);
+
+op:-
+Rishe
+Rishekesh
+
+Doubt, It was said that Strings are immutable, but how did "a" get changed?
+If you notice carefully, You can see that, we are not updating "a", but creating a new object.
+How?
+Lets represent it,
+
+first We said a = "Rishe"; 
+
+ |         |           |--------------|
+ |         |           |   |-------|  | 
+ |   a     |           |   |pool   |  |
+ |         |           |   |"Rishe"|  |
+ |         |           |   |_______|  |
+ |_________|           |              | Where a is pointed towards "Rishe".
+
+ Then we said a = "Rishekesh";
+
+ |         |           |--------------|
+ |         |           |   |-------|  | 
+ |   a     |           |   |pool   |  |
+ |         |           |   |"Rishe"|  |
+ |         |           |   |"Rsesh"|  |
+ |_________|           |   |_______|  | Where a is pointed towards "Rsesh". Which is the new object created.
+
+ In the above example, we did not change the object, We just created a new object.
+ So what will happen to the old object, "Rishe"?
+ Simple, it goes to the garbage collection.
+                        ------------------
+
+Why immutability though?
+
+consider this example,
+ |         |           |--------------|
+ |         |           |   |-------|  | 
+ |   p1    |           |   |pool   |  |
+ |   p2    |           |   |"Rishe"|  |
+ |   p3    |           |   |       |  |
+ |_________|           |   |_______|  | Where p1,p2,p3 are pointed towards "Rishe".
+
+ If there are multiple people with same as "Rishe", and supposidly, one of the persons decide to change their name,
+ for example, P1 decides to change their name to "Kesh", then ultimately all the persons in the database names will
+ be changed to "Kesh", if string were not immutable. This si the security reason.
+
+Now , How do we know that more than 2 reference varibales are pointing towards the same object or diff object?
+
+consider example,
+
+prog:-
+String a = "Rishe";
+String b = "Rishe";
+System.our.println(a == b);
+
+op:-
+true //with a warning
+
+What is happening here?
+There are 2 ways to compare strings actually,
+1] == method, where == is a comparator
+
+   when a = "Rishe"      but     when a -->} "Rishe"
+   and  b = "Rishe"              and  b -->}  
+   a == b is false               a == b is true
+
+   So, what is == doing here?
+   It actually checks for both the values and the reference variable, if the reference variable is pointing
+   towards the same object 
+
+
+ 
+
+ 
