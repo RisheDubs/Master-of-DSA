@@ -134,7 +134,7 @@ There are 2 ways to compare strings actually,
    It actually checks for both the values and the reference variable, if the reference variable is pointing
    towards the same object 
 
-
+// How to create different objects of same value
  
 
  
