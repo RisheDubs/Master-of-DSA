@@ -134,7 +134,45 @@ There are 2 ways to compare strings actually,
    It actually checks for both the values and the reference variable, if the reference variable is pointing
    towards the same object 
 
-// How to create different objects of same value
- 
+// How to create different objects of same value?
 
- 
+consider, String a = new String("rishe");
+          String b = new String("rishe");
+// creating this values outside the pool but in heap
+// Internally, this is how it works
+
+ |         |           |--------------|
+ |         |           |   |-------|  | 
+ |   p1    |           |   |pool   |  |
+ |   p2    |           |   |_______|  |
+ |   p3    |           |   |"Rishe"|  | a points to the first "rishe" and b points to the later one.
+ |_________|           |   |"Rishe"|  | It is creating objects outside the pool but inside the heap.
+
+Even though the values are same, both a and b are not pointing towards the same objects. In this case,
+a == b is false.
+
+2] When you only need to check value. Use ".equals" method.
+
+//CharAt(index)
+  ------------
+
+String, unlike arrays cant be accesed through index number using for loop. Hence we use a string function called
+".charAt()", what this basically does is, it returns the index value from the string. or from the specific 
+position of the String.
+
+eg:- name = "Rishe";
+     ans = name.charAt(0); // we need the element at position 0 of String ans.
+     System.out.println(ans); // returns R; 
+
+Println
+-------
+
+Here we are going to see how println works on integers.
+
+First of all, Anything you print on println, calls the "to.String" method.
+So, every value you need to get, the sequence goes like, ur input -> .value -> to.string, this is the format.
+
+pretty printing (needed for competative programming)
+---------------
+
+
