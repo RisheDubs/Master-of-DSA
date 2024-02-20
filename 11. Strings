@@ -174,5 +174,73 @@ So, every value you need to get, the sequence goes like, ur input -> .value -> t
 
 pretty printing (needed for competative programming)
 ---------------
+prog:-
 
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+
+public class Student{
+	public static void main(String[] args) {
+		// Pretty printing in java
+		float num = 12.34567f;
+		//we use "printf" for formated string. It rounds off as well.
+		System.out.printf("the formated number is %.2f",num); //here % is place holder and 
+                                                            number after . are the digits included in the output
+		System.out.println(" ");
+		System.out.printf("hi my name is %s, and i love %s","rishe","juice");
+	}
+}
+
+op:-
+the formated number is 12.35 
+hi my name is rishe, and i love juice
+
+String concat
+-------------
+
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+
+public class Student{
+	public static void main(String[] args) {
+		// String concat vs char + char
+		System.out.println('a' + 'b'); //char + char, converts the char into Ascii value and returns the integer answer
+		System.out.println("a" + "b"); //string + string, concats the string and gives the result
+		System.out.println(('a' + 3)); //gives the value of d,100 [a,97 + 3 = 100,d] 
+		System.out.println((char)('a' + 3)); //The above operation takes place, but since char is present, we get ascii value of d
+		System.out.println("a" + 1); //But unlike characters, integers will be converted to Integer that will call toString()
+		//integer is calling a 2 string function, which makes it "a" + "1" after a few steps.
+		System.out.println("a" + new ArrayList<>());
+		//Similar to what integers did above, ArrayList calls the toString function.
+		// Simply put, if there is object, then we call toString on it. Java looks at our print statement and 
+		// be like, "oh there is a string and the next part isnt", and it converts into a string by calling in  
+		// the toString method
+		System.out.println("a" + new Integer(53));
+		
+		//error cases
+		//take this example for instance
+		//System.out.println(new Integer(56) + new ArrayList<>());
+		//So this is what is happening. The operator + for java is only used for primitives and when any one 
+		// the values to be added is a string.
+		
+		//So, if we add a string to the error expression from before, say
+		System.out.println(new Integer(56) + "" + new ArrayList<>()); //this will work since string is present
+		
+		//Why does java give us this many functions for + operator.
+		//Since we have been using + since our childhood days, we know its functionalities, Java just decided
+		// to put that knowledge into use, Since this can be called "operator overloading". because operator is
+		// giving us more functionalities.
+
+	}
+}
 
