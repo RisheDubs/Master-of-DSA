@@ -244,3 +244,150 @@ public class Student{
 	}
 }
 
+performance
+-----------
+
+// consider this example
+
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+
+public class Student{
+	public static void main(String[] args) {
+		String series = "";
+		for(int i=0; i<26; i++) {
+			char ch = (char)('a'+i);
+			series = series + ch;
+		}
+		System.out.println(series);
+	}
+}
+
+op:-
+abcdefghijklmnopqrstuvwxyz
+
+// This is a program to print all the alphabets from a to z, but this program is not an optimized code.
+//Why?
+
+lets take the first loop of the program,
+
+loop 1 - series = " " + 'a' => "a"
+loop 2 - series = "a" + 'b' => "ab"
+loop 2 - series = "ab" + 'c' => "abc"
+
+As we can see above, new object is being created everytime the loop runs, hence taking more storage in the heap. 
+Why cant we update the exisiting series string, because strings are immutable, hence new objects are created.
+So in the end, every previous loop elements wont have a reference variable pointing towards them. for example,
+[a,ab,abc,abcd,....,abcdef..y] would be a wasted space. Thus this a time complexity of O(N^2). 
+Now, this is not a very good time complexity. 
+So, what if we had a datatype that does not create new onject, but modify the same string...
+This is where string builder comes in.
+
+String Builder
+--------------
+
+String builder is also a seperate class like Strings
+
+prog:- 
+
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+
+public class Student{
+	public static void main(String[] args) {
+		StringBuilder builder = new StringBuilder(); //StringBuilder is a class. 
+		for(int i=0; i<26; i++) {
+			char ch = (char)('a'+i);
+			builder.append(ch);
+		}
+		System.out.println(builder.toString());
+	}
+}
+
+op:-
+abcdefghijklmnopqrstuvwxyz
+
+// No new space is taken, the existing String is being updated over and over again.
+// There are also many StringBuilder operations in Java, They are self explanatory.
+
+String methods
+--------------
+
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+
+public class Student{
+	public static void main(String[] args) {
+		String name = "Rishekesh";
+		System.out.println(Arrays.toString(name.toCharArray())); //toCharArray, gets each individual character in String, but Arrays.toString actually makes string to array. 
+		System.out.println(name.toLowerCase()); //makes each individual character in String to lowercase.
+		System.out.println(name.indexOf('i')); //Finds the specific char in String.
+		System.out.println("        Rishek    ".strip());//removes the space from front and back
+		
+		
+		
+	}
+}
+
+op:-
+
+[R, i, s, h, e, k, e, s, h]
+rishekesh
+1
+Rishek
+
+Questions
+---------
+
+1] Check if string palindrome or not
+
+sol]
+package javatpoint;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+
+public class Student{
+	public static void main(String[] args) {
+		String str = "abcba";
+		System.out.println(palindromForStrings(str));
+		
+	}
+	public static boolean palindromForStrings(String str) {
+		if(str == null || str.length() == 0) {
+			return false;
+		}
+		str = str.toLowerCase();
+		for(int i = 0; i<=str.length()/2; i++) {
+			char start = str.charAt(i);
+			char end = str.charAt(str.length() - 1 - i);
+			
+			if(start != end) {
+				return false;
+			}
+		}
+		return true;
+	}
+}
+
+op:-
+true
+
