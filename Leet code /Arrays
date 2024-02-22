@@ -657,3 +657,81 @@ Output
 Expected
 25
 
+14] Spiral matrix [URL:- https://leetcode.com/problems/spiral-matrix/submissions/1182589793/]
+
+sol]
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        //new list to store the result array
+        List<Integer> result = new ArrayList<>();
+
+        //edge case:- If matrix has 0 elements then return result.
+        if(matrix == null || matrix.length == 0){
+            return result;
+        }
+
+        //assigning values
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+
+        //pointer assignment
+        int left = 0;
+        int right = cols - 1;
+        int top = 0;
+        int bottom = rows - 1;
+
+        //condition to check in while loop
+        while(left <= right && top <= bottom){
+            
+            // traverse right
+            // for top row elements, traverse from left to right
+            for(int i = left; i <= right; i++){
+                result.add(matrix[top][i]); //top row is fixed, i col is our traverse
+            }
+            top++; //push the top row pointer to second row.
+
+            // traverse down
+            // for right col elements, traverse from top to bottom
+            for(int i = top; i <= bottom; i++){
+                result.add(matrix[i][right]); //right col fixed, i row tarverse
+            }
+            right--; //push right to left
+
+            //traverse left
+            if(top <= bottom){
+                // for bottom col elements, traverse from right to left
+                for(int i = right; i >= left ; i-- ){
+                   result.add(matrix[bottom][i]); 
+                }
+                bottom --;
+            }
+            
+            //traverse up
+            if( left <= right){
+                //for left row elements, traverse bottom to top
+                for(int i = bottom; i >= top; i--){
+                    result.add(matrix[i][left]);
+                }
+                left ++;
+            }
+        }
+
+        return result;
+    }
+}
+
+op:-
+matrix =
+[[1,2,3],[4,5,6],[7,8,9]]
+
+Output
+[1,2,3,6,9,8,7,4,5]
+
+Expected
+[1,2,3,6,9,8,7,4,5]
+
+15]
+
+sol]
+
+op:-
